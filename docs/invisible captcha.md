@@ -26,3 +26,58 @@ Just as before, the `arcaptcha-token` will be sent to the callback function upon
   }
 </script>
 ```
+
+## Programmatically bind the challenge to a button or invoke the challenge
+
+This works without change from the explicit rendering of the [ARCaptcha widget described here](/docs/configuration#explicitly-render-arcaptcha). The only difference is that if the `data-size="invisible"` is present, the widget will be rendered in the background and only presented when a challenge is required.
+
+## Programmatically invoke the challenge
+
+If you would prefer to invoke the ARCaptcha workflow via a JavaScript trigger (in cases like a checkbox click, or a page load), you'll need to use the `arcaptcha.execute(widgetID)` function to trigger that process on a given `widgetID`.
+
+For more information on the `arcaptcha.execute` function and the `widgetID` argument, you can read more on the [JavaScript API section of the configuration page](/docs/configuration#arcaptchaexecutewidgetid)
+
+#### Example
+
+```html
+<html>
+  <head>
+    <script src="https://widget.arcaptcha.ir/1/api.js" async defer></script>
+
+    <script>
+      function onSubmit(token) {
+        alert("thanks " + document.getElementById("field").value);
+      }
+
+      function validate(event) {
+        event.preventDefault();
+        if (!document.getElementById("field").value) {
+          alert("You must add text to the required field");
+        } else {
+          arcaptcha.execute();
+        }
+      }
+
+      function onload() {
+        var element = document.getElementById("submit");
+        element.onclick = validate;
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      Name: (required) <input id="field" name="field" />
+      <div
+        class="arcaptcha"
+        data-sitekey="your_site_key"
+        data-callback="onSubmit"
+        data-size="invisible"
+      ></div>
+      <button id="submit">submit</button>
+    </form>
+    <script>
+      onload();
+    </script>
+  </body>
+</html>
+```
