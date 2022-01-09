@@ -4,11 +4,14 @@
 
 The only way to configure ARCaptcha is to set custom attributes on the ARCaptcha container `<div>`. You're already required to do this with `data-site-key`, but there are a handful of other optional attributes that enable more customization.
 
-| Attribute     | Value                | Description                                                                                                           |
-| ------------- | -------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| data-site-key | `<your site key>`    | Required. Your public API site key.                                                                                   |
-| data-size     | normal \| inivisible | Optional. Set the size of the widget. Defaults to normal.                                                             |
-| data-callback | `<function name>`    | Optional. Called when the user submits a successful response. The `arcaptcha-token` token is passed to your callback. |
+| Attribute     | Value                    | Description                                                                                                           |
+| ------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------- |
+| data-site-key | `<your site key>`        | Required. Your public API site key.                                                                                   |
+| data-size     | `normal` \| `inivisible` | Optional. Set the size of the widget. Defaults to `normal`.                                                           |
+| data-callback | `<function name>`        | Optional. Called when the user submits a successful response. The `arcaptcha-token` token is passed to your callback. |
+| data-theme    | `light` \| `dark`        | Optional. Set the theme of widget. Defualts to `light`                                                                |
+| data-color    | color name or hex code   | Optional. Set color of every colored element in widget.                                                               |
+| data-lang     | `en` \| `fa`             | Optional. Set language of widget . Defaults to `fa`                                                                   |
 
 Besides the required `data-site-key`, you can add as many or as few configuration attributes as you want.
 
@@ -20,12 +23,12 @@ Besides the required `data-site-key`, you can add as many or as few configuratio
 ></div>
 ```
 
-All of the above attributes can also be used as param arguments when explicitly rendering with `arcaptcha.render()` (described in the next section). In that case, the param name is as shown above, but without the data prefix. For example, the param argument for `data-site-key` is just `site-key`
+All of the above attributes can also be used as param arguments when explicitly rendering with `arcaptcha.render()` (described in the next section). In that case, the param name is as shown above, but without the data prefix. For example, the param argument for `data-site-key` is just `site_key`
 
 ```html
 <script type="text/javascript">
   arcaptcha.render("captcha-1", {
-    "site-key": "your_site_key",
+    site_key: "your_site_key",
   });
 </script>
 ```
@@ -44,8 +47,8 @@ Renders the ARCaptcha widget inside the container DOM element. Returns a unique 
 
 ```js
 {
-   "size": "invisible",
-   "site-key": "your_site_key"
+   size: "invisible",
+   site_key: "your_site_key"
 }
 ```
 
@@ -63,9 +66,20 @@ Gets the challenge ID for the ARCaptcha widget with widgetID.
 
 ### arcaptcha.execute(widgetID)
 
-Triggers the ARCaptcha workflow programmatically. Generally used in invisible mode where the target container is a div rather than a button.
+Triggers the ARCaptcha workflow programmatically. Generally used in invisible mode where the target container is a div rather than a button. Returns a promise that will be resolved after user solved the challenge and will be rejected after any error occuration or false solvation.
 
 - `widgetID` Optional unique ID for a widget. Defaults to first widget created.
+
+```js
+arcaptcha
+  .execute()
+  .then((token) => {
+    console.log(token);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+```
 
 ## Explicitly Render ARCaptcha
 
@@ -80,7 +94,7 @@ You can then call `arcaptcha.render` with the container selector(id or class) or
   var yourFunction = function () {
     console.log("ARCaptcha is ready.");
     var widgetID = arcaptcha.render("captcha-1", {
-      "site-key": "your_site_key",
+      site_key: "your_site_key",
     });
   };
 </script>
