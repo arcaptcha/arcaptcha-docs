@@ -1,19 +1,21 @@
-# Configuration
+# پیکربندی
 
-## ARCaptcha Container Configuration
+## پیکربندی کانتینر آرکپچا
 
-The only way to configure ARCaptcha is to set custom attributes on the ARCaptcha container `<div>`. You're already required to do this with `data-site-key`, but there are a handful of other optional attributes that enable more customization.
+تنها راه برای پیکربندی آرکپچا تنظیم ویژگی های سفارشی در کانتینر آرکپچا `<div>` است. قبلا این کار را با  `data-site-key` انجام داده‌اید، اما تعدادی ویژگی اختیاری دیگر وجود دارد که سفارشی سازی بیشتر را امکان پذیر می کند.
 
-| Attribute     | Value                    | Description                                                                                                           |
+| ویژگی     | مقدار                 | توضیحات                                                                                                         |
 | ------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------- |
-| data-site-key | `<your site key>`        | Required. Your public API site key.                                                                                   |
-| data-size     | `normal` \| `inivisible` | Optional. Set the size of the widget. Defaults to `normal`.                                                           |
-| data-callback | `<function name>`        | Optional. Called when the user submits a successful response. The `arcaptcha-token` token is passed to your callback. |
-| data-theme    | `light` \| `dark`        | Optional. Set the theme of widget. Defualts to `light`                                                                |
-| data-color    | color name or hex code   | Optional. Set color of every colored element in widget.                                                               |
-| data-lang     | `en` \| `fa`             | Optional. Set language of widget . Defaults to `fa`                                                                   |
+| data-site-key | `<your site key>`        | ضروری. sitekey عمومی شما|
+| data-size     | `normal` \| `inivisible` | اختیاری. اندازه ویجت را تنظیم کنید. پیش‌فرض  `normal` است.|
+| data-callback | `<function name>`        | اختیاری. زمانی که کاربر یک پاسخ موفقیت آمیز ارسال می کند، فراخوانی می شود و  `arcaptcha-token` به callback ارسال می شود. |
+| data-theme    | `light` \| `dark`        |  اختیاری. تم ویجت را تنظیم کنید. پیش فرض  `light` است.| 
+| data-color    | اسم رنگ یا کد hex  | اختیاری. رنگ هر عنصر در ویجت را تنظیم کنید.                                                               |
+| data-lang     | `en` \| `fa`             | اختیاری. تنظیم زبان ویجت به طور پیش فرض `fa` است|
 
-Besides the required `data-site-key`, you can add as many or as few configuration attributes as you want.
+
+علاوه بر `data-site-key` مورد نیاز، می توانید هر تعداد یا چند ویژگی پیکربندی را که می خواهید اضافه کنید.
+
 
 ```html
 <div
@@ -22,8 +24,8 @@ Besides the required `data-site-key`, you can add as many or as few configuratio
   data-callback="onSubmit"
 ></div>
 ```
+همه ویژگی‌های بالا  می‌توانند به‌عنوان آرگومان‌های پارامتر هنگام رندر کردن صریح با `()arcaptcha.render`استفاده شوند (توضیح داده شده در بخش بعدی). در این حالت، نام پارامتر همانطور که در بالا نشان داده شده است، اما بدون پیشوند data است. به عنوان مثال، آرگومان پارامتر `data-site-key` به صورت `site_key` خواهد بود.
 
-All of the above attributes can also be used as param arguments when explicitly rendering with `arcaptcha.render()` (described in the next section). In that case, the param name is as shown above, but without the data prefix. For example, the param argument for `data-site-key` is just `site_key`
 
 ```html
 <script type="text/javascript">
@@ -35,15 +37,15 @@ All of the above attributes can also be used as param arguments when explicitly 
 
 ## JavaScript API
 
-The ARCaptcha API exposes the ARCaptcha object that has methods you may find useful in customizing ARCaptcha behavior.
+ARCaptcha API شیء آرکپچا را نشان می دهد که متدهایی دارد که ممکن است در سفارشی کردن آرکپچا مفید باشد.
 
 ### arcaptcha.render(container, params)
 
-Renders the ARCaptcha widget inside the container DOM element. Returns a unique widgetID for the widget.
+ویجت آرکپچا را در داخل عنصر DOM کانتینر ارائه می کند. یک widgetID منحصر به فرد را برای ویجت برمی گرداند.
 
-- `container` The string ID of the container or the container DOM element.
+- `container` شناسه رشته کانتینر یا عنصر DOM کانتینر.
 
-* `params` An object containing config parameters as key=value pairs. Ex:
+* `params` یک شی حاوی پارامترهای پیکربندی به عنوان جفت کلید = مقدار. برای مثال :
 
 ```js
 {
@@ -54,21 +56,21 @@ Renders the ARCaptcha widget inside the container DOM element. Returns a unique 
 
 ### arcaptcha.reset(widgetID)
 
-Resets the ARCaptcha widget with widgetID.
+ویجت آرکپچا را با widgetID ریست می کند.
 
-- `widgetID` Optional unique ID for a widget. Defaults to first widget created.
+- `widgetID`  شناسه منحصر به فرد اختیاری برای یک ویجت. پیش‌فرض‌ برای اولین ویجت ایجاد می‌شود.
 
 ### arcaptcha.getArcToken(widgetID)
 
-Gets the challenge ID for the ARCaptcha widget with widgetID.
+شناسه چالش را برای ویجت آرکپچا با widgetID دریافت می کند.
 
-- `widgetID` Optional unique ID for a widget. Defaults to first widget created.
+- `widgetID` شناسه منحصر به فرد اختیاری برای یک ویجت. پیش‌فرض‌ برای اولین ویجت ایجاد شده می‌باشد.
 
 ### arcaptcha.execute(widgetID)
 
-Triggers the ARCaptcha workflow programmatically. Generally used in invisible mode where the target container is a div rather than a button. Returns a promise that will be resolved after user solved the challenge and will be rejected after any error occuration or false solvation.
+گردش کار آرکپچا را به صورت برنامه‌ریزی شده راه اندازی می کند. به طور کلی در حالت نامرئی استفاده می شود که در آن ظرف هدف به جای یک دکمه، یک div است. یک promise را برمی‌گرداند که پس از حل چالش توسط کاربر برطرف می‌شود و پس از هر گونه خطا یا حل نادرست رد می‌شود.
 
-- `widgetID` Optional unique ID for a widget. Defaults to first widget created.
+- `widgetID` شناسه منحصر به فرد اختیاری برای یک ویجت. پیش‌فرض‌ برای اولین ویجت ایجاد شده می‌باشد.
 
 ```js
 arcaptcha
@@ -83,11 +85,12 @@ arcaptcha
 
 ## Explicitly Render ARCaptcha
 
-In the default implementation, ARCaptcha widgets will be automatically rendered and inserted into your webpage. However, you can also defer rendering by specifying a custom onload callback function in which you render the widget yourself.
+در اجرای پیش‌فرض، ابزارک‌های آرکپچا به‌طور خودکار رندر می‌شوند و در صفحه وب شما درج می‌شوند. با این حال، می‌توانید رندر را با تعیین یک تابع callback که در آن ویجت را خودتان رندر می‌کنید، به تعویق بیندازید.
 
-To specify a custom onload callback function, you must pass the function name as an attribute into ARCaptcha `container` or as a parameter into `render` function.
+برای تعیین یک تابع callback، باید نام تابع را به عنوان یک ویژگی به `container` آرکپچا یا به عنوان پارامتر به تابع `render` بفرستید.
 
-You can then call `arcaptcha.render` with the container selector(id or class) or `HTMLElement` and your site key to explicitly render the widget.
+سپس می‌توانید `arcaptcha.render` را با container selector (id یا کلاس) یا `HTMLElement` و کلید سایت خود فراخوانی کنید تا ویجت را به‌صراحت رندر کنید.
+
 
 ```html
 <script type="text/javascript">
