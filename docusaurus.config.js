@@ -38,7 +38,20 @@ const config = {
       }),
     ],
   ],
-
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'fa'],
+    localeConfigs: {
+      en: {
+        label: 'English',
+        direction: 'ltr'
+      },
+      fa: {
+        label: 'فارسی',
+        direction: 'rtl'
+      },
+    },
+  },
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -60,6 +73,10 @@ const config = {
             label: "GitHub",
             position: "right",
           },
+          {
+            type: "localeDropdown",
+            position: "left",
+          },
         ],
       },
       footer: {
@@ -76,20 +93,6 @@ const config = {
           },
           {
             title: "Community",
-            items: [
-              // {
-              //   label: "Stack Overflow",
-              //   href: "https://stackoverflow.com/questions/tagged/docusaurus",
-              // },
-              // {
-              //   label: "Discord",
-              //   href: "https://discordapp.com/invite/docusaurus",
-              // },
-              // {
-              //   label: "Twitter",
-              //   href: "https://twitter.com/docusaurus",
-              // },
-            ],
           },
           {
             title: "More",

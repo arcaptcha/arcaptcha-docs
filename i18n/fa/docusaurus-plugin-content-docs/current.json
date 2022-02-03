@@ -1,0 +1,14 @@
+{
+  "version.label": {
+    "message": "بعدی",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.API": {
+    "message": "API",
+    "description": "The label for category API in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Widget methods": {
+    "message": "متدهای ویجت",
+    "description": "The label for category Widget methods in sidebar tutorialSidebar"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "link.title.Docs": {
+    "message": "مستندات",
+    "description": "The title of the footer links column with title=Docs in the footer"
+  },
+  "link.title.Community": {
+    "message": "انجمن",
+    "description": "The title of the footer links column with title=Community in the footer"
+  },
+  "link.title.More": {
+    "message": "بیشتر",
+    "description": "The title of the footer links column with title=More in the footer"
+  },
+  "link.item.label.Installation": {
+    "message": "نصب و راه اندازی",
+    "description": "The label of footer link with label=Installation linking to /docs/installation"
+  },
+  "link.item.label.Blog": {
+    "message": "وبلاگ",
+    "description": "The label of footer link with label=Blog linking to https://arcaptcha.ir/blog"
+  },
+  "link.item.label.GitHub": {
+    "message": "گیت هاب",
+    "description": "The label of footer link with label=GitHub linking to https://github.com/arcaptcha"
+  }
+}

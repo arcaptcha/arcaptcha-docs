@@ -1,0 +1,14 @@
+{
+  "title": {
+    "message": "آرکپچا",
+    "description": "The title in the navbar"
+  },
+  "item.label.Installation": {
+    "message": "نصب و راه اندازی",
+    "description": "Navbar item with label Installation"
+  },
+  "item.label.GitHub": {
+    "message": "گیت هاب",
+    "description": "Navbar item with label GitHub"
+  }
+}
