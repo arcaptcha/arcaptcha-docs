@@ -1,10 +1,11 @@
-# Invisible Captcha
+# کپچا مخفی
 
-You can get all the bot-blocking benefits of ARCaptcha without explicitly rendering our checkbox widget. ARCaptcha client/server interactions occur in the background, and the user will only be presented with a ARCaptcha challenge if try to click on submit button.
+می‌توانید تمام مزایای مسدود کردن ربات آرکپچا را بدون ارائه صریح ویجت چک باکس ما دریافت کنید. تعاملات کلاینت/سرور آرکپچا در پس‌زمینه رخ می‌دهد و تنها در صورتی که سعی کنید روی دکمه ارسال کلیک کنید، چالش آرکپچا به کاربر ارائه می‌شود.
 
-## Automatically bind the challenge to a button
+## چالش را به صورت خودکار به یک دکمه متصل کنید
 
-The easiest way to do this is to assign an `.arcaptcha` class to any button or input. Like before, you must add your site key in a `data-site-key` attribute assigned to the `<button>` element. Additionally, all of the data-\* attributes are applicable here.
+ساده ترین راه برای انجام این کار، اختصاص یک کلاس `arcaptcha.` به هر دکمه یا ورودی است. مانند قبل، باید کلید سایت خود را در ویژگی `data-site-key` که به عنصر `<button>` اختصاص داده شده است، اضافه کنید. علاوه بر این، تمام ویژگی های \*-data در اینجا قابل اجرا هستند.
+
 
 ```html
 <button
@@ -15,8 +16,8 @@ The easiest way to do this is to assign an `.arcaptcha` class to any button or i
   Submit
 </button>
 ```
+دقیقاً مانند قبل، `arcaptcha-token` پس از تکمیل موفقیت آمیز چالش ARCaptcha به تابع callback ارسال می شود. اگر آرکپچا نامرئی را به یک دکمه ارسال متصل کنید، باید یک data-callback را برای رسیدگی به ارسال فرم مشخص کنید. در بیشتر موارد، شما می خواهید از callback برای ارسال دستی فرم استفاده کنید.
 
-Just as before, the `arcaptcha-token` will be sent to the callback function upon successful completion of the ARCaptcha challenge. If you attached the invisible ARCaptcha to a submit button, you must specify a data-callback to handle form submission. In most cases, you will want to use the callback to manually submit the form.
 
 ```html
 <script type="text/javascript">
@@ -27,17 +28,17 @@ Just as before, the `arcaptcha-token` will be sent to the callback function upon
 </script>
 ```
 
-## Programmatically bind the challenge to a button or invoke the challenge
+## چالش را به به یک دکمه متصل کنید یا چالش را فراخوانی کنید
 
-This works without change from the explicit rendering of the [ARCaptcha widget described here](/docs/configuration#explicitly-render-arcaptcha). The only difference is that if the `data-size="invisible"` is present, the widget will be rendered in the background and only presented when a challenge is required.
+این بدون تغییر رندر صریح [ویجت آرکپچا در اینجا توضیح داده شده است ](/docs/configuration#explicitly-render-arcaptcha)کار می کند.تنها تفاوت این است که اگر `data-size="invisible"` موجود باشد، ویجت در پس‌زمینه نمایش داده می‌شود و تنها زمانی ارائه می‌شود که چالش مورد نیاز باشد.
 
-## Programmatically invoke the challenge
+## به صورت برنامه ای چالش را فراخوانی کنید
 
-If you would prefer to invoke the ARCaptcha workflow via a JavaScript trigger (in cases like a checkbox click, or a page load), you'll need to use the `arcaptcha.execute(widgetID)` function to trigger that process on a given `widgetID`.
+اگر ترجیح می‌دهید گردش کار ARCaptcha را از طریق یک تریگر جاوا اسکریپت فراخوانی کنید (در مواردی مانند کلیک باکس یا بارگذاری صفحه)، باید از تابع `arcaptcha.execute(widgetID)` برای راه‌اندازی آن فرآیند روی یک `widgetID` استفاده کنید.
 
-For more information on the `arcaptcha.execute` function and the `widgetID` argument, you can read more on the [JavaScript API section of the configuration page](/docs/configuration#arcaptchaexecutewidgetid)
+برای اطلاعات بیشتر در مورد تابع `arcaptcha.execute` و آرگومان `widgetID`، می توانید به  [بخش API جاوا اسکریپت در صفحه پیکربندی](/docs/configuration#arcaptchaexecutewidgetid) مراجعه کنید.
 
-#### Example
+#### مثال
 
 ```html
 <html>
