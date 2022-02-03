@@ -1,26 +1,26 @@
-# Verify
+# تأیید کنید
 
-Description : Verify that user solved the challenge correctly.
+توضیحات: بررسی کنید که کاربر چالش را به درستی حل کرده است.
 
-Method : `POST`
+روش: `POST`.
 
-Endpoint : `https://api.arcaptcha.ir/arcaptcha/api/verify`
+نقطه پایانی : `https://api.arcaptcha.ir/arcaptcha/api/verify`
 
-Request parameters :
+درخواست پارامترها:
 
-| Parameters   | Description                                                                  |
+| پارامترها    | توضیحات                                                                 |
 | ------------ | ---------------------------------------------------------------------------- |
-| challenge_id | Required. The field name `arcaptcha-token` token you received from your form |
-| site_key     | Required. The sitekey you expect to see.                                     |
-| secret_key   | Required. Your account secret key.                                           |
+| challenge_id | ضروری. نام فیلد  که از فرم خود دریافت کردید |
+| site_key     | ضروری. کلید سایتی که انتظار دارید ببینید.                                     |
+| secret_key   | ضروری. کلید مخفی حساب شما                                         |
 
-Response body :
+بدنه پاسخ :
 
-| Parameters | Description                               |
+| پارامترها | توضیحات                           |
 | ---------- | ----------------------------------------- |
-| success    | Status of challenge. Can be true or false |
+| success    | وضعیت چالش می تواند درست یا نادرست باشد |
 
-Example(NodeJS) :
+مثال(NodeJS) :
 
 ```js
 const arcaptcha_api = "https://api.arcaptcha.ir/arcaptcha/api/verify";
