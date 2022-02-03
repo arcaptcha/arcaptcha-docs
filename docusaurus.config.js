@@ -22,15 +22,11 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve("./sidebars.js"),
-          // Please change this to your repo.
-          // editUrl: "https://github.com/facebook/docusaurus/edit/main/website/",
+          routeBasePath: '/',
+          //sidebarPath: require.resolve("./sidebars.js"),
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
-          // editUrl:
-          //   "https://github.com/facebook/docusaurus/edit/main/website/blog/",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
@@ -39,7 +35,7 @@ const config = {
     ],
   ],
   i18n: {
-    defaultLocale: 'en',
+    defaultLocale: 'fa',
     locales: ['en', 'fa'],
     localeConfigs: {
       en: {
@@ -87,7 +83,7 @@ const config = {
             items: [
               {
                 label: "Installation",
-                to: "/docs/installation",
+                to: "/installation",
               },
             ],
           },
