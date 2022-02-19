@@ -5,7 +5,14 @@
  */
 
 /* You can override the default Infima variables here. */
+@font-face {
+  src: url('/fonts/Yekan Bakh Fa-En 05 Medium.woff') format("truetype");
+  font-family: 'Yekan';
+}
+
 :root {
+  --ifm-font-family-monospace: "Yekan";
+  --ifm-font-family-base: "Yekan";
   --ifm-color-primary: rgb(134, 126, 226);
   --ifm-color-primary-dark: rgb(33, 175, 144);
   --ifm-color-primary-darker: rgb(31, 165, 136);
@@ -26,3 +33,5 @@
 html[data-theme="dark"] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
+
+
