@@ -95,6 +95,10 @@ const config = {
             items: [
               {
                 label: "Installation",
+                to: "/1.0.0/installation",
+              },
+              {
+                label: "arCaptcha v3",
                 to: "/installation",
               },
             ],
