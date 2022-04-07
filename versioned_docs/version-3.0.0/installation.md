@@ -68,7 +68,7 @@ If you wish to have more control over when arCAPTCHA runs, you can use the `exec
       }
   </script>
 ```
-3. Send the token immediately to your backend with the request to ***********verify*************.
+3. Send the token immediately to your backend with the request to [verify](/verify).
 
 ## Interpreting the score
 
@@ -103,3 +103,6 @@ Note: Actions might contain only alphanumeric characters, slashes, and underscor
 :::
 
 ## Site Verify Response
+
+
+## Tips
