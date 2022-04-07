@@ -28,12 +28,12 @@ const config = {
           routeBasePath: '/',
           includeCurrentVersion: false,
           versions: {
+            '3.0.0': {
+              banner:'none'
+            },
             '1.0.0': {
               banner:'none'
-            },
-            '1.0.2': {
-              banner:'none'
-            },
+            }
           },
         },
         blog: {
@@ -82,9 +82,8 @@ const config = {
             position: "left",
           },
           {
-            type: 'docsVersionDropdown',
-            position: 'left',
-            dropdownActiveClassDisabled: true,
+            type: "docsVersionDropdown",
+            position: "left",
           },
         ],
       },
