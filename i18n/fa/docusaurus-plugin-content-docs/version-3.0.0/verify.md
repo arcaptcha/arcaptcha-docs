@@ -6,13 +6,13 @@ For web users, you can get the user’s response token in this way:
 
 - `arcaptcha-response` POST parameter when the user submits the form on your site
 
-## Token Restrictions {#token-restrictions}
+## Token Restrictions
 
 Each ARCaptcha user response token is valid for two minutes, and can only be verified once to prevent replay attacks. If you need a new token, you can re-run the ARCaptcha verification.
 
 After you get the response token, you need to verify it within two minutes with ARCaptcha using the following API to ensure the token is valid.
 
-## API Request {#api-request}
+## API Request
 
 URL: https://www.widget.arcaptcha.ir/arcaptcha/api/siteverify METHOD: POST
 
@@ -22,7 +22,7 @@ URL: https://www.widget.arcaptcha.ir/arcaptcha/api/siteverify METHOD: POST
 | response       | Required. The user response token provided by the ARCaptcha client-side integration on your site. |
 | remoteip       | Optional. The user's IP address.                                                                  |
 
-## API Response {#api-response}
+## API Response
 
 The response is a JSON object:
 
@@ -47,7 +47,7 @@ For ARCaptcha Android:
 
 ```
 
-## Error code reference {#error-code-reference}
+## Error code reference
 
 | Error code             | Description                                                                     |
 | ---------------------- | ------------------------------------------------------------------------------- |
