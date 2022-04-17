@@ -1,6 +1,6 @@
 # Configuration
 
-## ARCaptcha Container Configuration
+## ARCaptcha Container Configuration {#arcaptcha-container-configuration}
 
 The only way to configure ARCaptcha is to set custom attributes on the ARCaptcha container `<div>`. You're already required to do this with `data-site-key`, but there are a handful of other optional attributes that enable more customization.
 
@@ -33,11 +33,11 @@ All of the above attributes can also be used as param arguments when explicitly 
 </script>
 ```
 
-## JavaScript API
+## JavaScript API {#javascript-api}
 
 The ARCaptcha API exposes the ARCaptcha object that has methods you may find useful in customizing ARCaptcha behavior.
 
-### arcaptcha.render(container, params)
+### arcaptcha.render(container, params) {#arcaptcharendercontainer-params}
 
 Renders the ARCaptcha widget inside the container DOM element. Returns a unique widgetID for the widget.
 
@@ -52,19 +52,19 @@ Renders the ARCaptcha widget inside the container DOM element. Returns a unique 
 }
 ```
 
-### arcaptcha.reset(widgetID)
+### arcaptcha.reset(widgetID) {#arcaptcharesetwidgetid}
 
 Resets the ARCaptcha widget with widgetID.
 
 - `widgetID` Optional unique ID for a widget. Defaults to first widget created.
 
-### arcaptcha.getArcToken(widgetID)
+### arcaptcha.getArcToken(widgetID) {#arcaptchagetarctokenwidgetid}
 
 Gets the challenge ID for the ARCaptcha widget with widgetID.
 
 - `widgetID` Optional unique ID for a widget. Defaults to first widget created.
 
-### arcaptcha.execute(widgetID)
+### arcaptcha.execute(widgetID) {#arcaptchaexecutewidgetid}
 
 Triggers the ARCaptcha workflow programmatically. Generally used in invisible mode where the target container is a div rather than a button. Returns a promise that will be resolved after user solved the challenge and will be rejected after any error occuration or false solvation.
 
@@ -81,7 +81,7 @@ arcaptcha
   });
 ```
 
-## Explicitly Render ARCaptcha
+## Explicitly Render ARCaptcha {#explicitly-render-arcaptcha}
 
 In the default implementation, ARCaptcha widgets will be automatically rendered and inserted into your webpage. However, you can also defer rendering by specifying a custom onload callback function in which you render the widget yourself.
 

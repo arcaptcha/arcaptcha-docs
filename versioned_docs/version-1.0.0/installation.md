@@ -6,13 +6,13 @@ sidebar_position: 1
 
 The ARCaptcha widget can protect your applications from bots, spam, and other forms of automated abuse. Installing ARCaptcha is fast and easy. It requires either adding some simple HTML and server side code.
 
-## Basics
+## Basics {#basics}
 
 You embed the ARCaptcha widget on your site. For example, on a login form. The user answers an ARCaptcha. They get a passcode from our server that is embedded in your form. When the user clicks Submit the passcode is sent to your server in the form. Your server then checks that passcode with the ARCaptcha server API. ARCaptcha says it is valid and credits your account. Your server now knows the user is not a bot and lets them log in. Pretty simple!
 
 ![all text](/img/flow.png)
 
-## Add the ARCaptcha Widget to your Webpage
+## Add the ARCaptcha Widget to your Webpage {#add-the-arcaptcha-widget-to-your-webpage}
 
 ARCaptcha requires two small pieces of client side code to render a captcha widget on an HTML page. First, you must include the ARCaptcha javascript resource somewhere in your HTML page. The `<script>` must be loaded via HTTPS and can be placed anywhere on the page. Inside the `<head>` tag or immediately after the `.arcaptcha` container are both fine.
 
@@ -48,7 +48,7 @@ Here's a full example where ARCaptcha is being used to protect a signup form fro
 </html>
 ```
 
-## Verify the User Response Server Side
+## Verify the User Response Server Side {#verify-the-user-response-server-side}
 
 By adding the client side code, you were able to render an ARCaptcha widget that identified if users were real people or automated bots. When the captcha succeeded, the ARCaptcha script inserted a unique token into your form data.
 

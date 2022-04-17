@@ -2,7 +2,7 @@
 
 You can get all the bot-blocking benefits of ARCaptcha without explicitly rendering our checkbox widget. ARCaptcha client/server interactions occur in the background, and the user will only be presented with a ARCaptcha challenge if try to click on submit button.
 
-## Automatically bind the challenge to a button
+## Automatically bind the challenge to a button {#automatically-bind-the-challenge-to-a-button}
 
 The easiest way to do this is to assign an `.arcaptcha` class to any button or input. Like before, you must add your site key in a `data-site-key` attribute assigned to the `<button>` element. Additionally, all of the data-\* attributes are applicable here.
 
@@ -27,17 +27,17 @@ Just as before, the `arcaptcha-token` will be sent to the callback function upon
 </script>
 ```
 
-## Programmatically bind the challenge to a button or invoke the challenge
+## Programmatically bind the challenge to a button or invoke the challenge {#programmatically-bind-the-challenge-to-a-button-or-invoke-the-challenge}
 
 This works without change from the explicit rendering of the [ARCaptcha widget described here](/1.0.0/configuration#explicitly-render-arcaptcha). The only difference is that if the `data-size="invisible"` is present, the widget will be rendered in the background and only presented when a challenge is required.
 
-## Programmatically invoke the challenge
+## Programmatically invoke the challenge {#programmatically-invoke-the-challenge}
 
 If you would prefer to invoke the ARCaptcha workflow via a JavaScript trigger (in cases like a checkbox click, or a page load), you'll need to use the `arcaptcha.execute(widgetID)` function to trigger that process on a given `widgetID`.
 
 For more information on the `arcaptcha.execute` function and the `widgetID` argument, you can read more on the [JavaScript API section of the configuration page](/1.0.0/configuration#arcaptchaexecutewidgetid)
 
-#### Example
+#### Example {#example}
 
 ```html
 <html>
