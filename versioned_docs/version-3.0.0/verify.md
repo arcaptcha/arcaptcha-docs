@@ -1,30 +1,30 @@
 
 # Verifying the user's response 
 
-This page explains how to verify a user's response to a arCAPTCHA challenge from your application's backend.
+This page explains how to verify a user's response to a ARCaptcha challenge from your application's backend.
 
 For web users, you can get the user’s response token in one of three ways:
 <ul>
-<li> `g-arcaptcha-response` POST parameter when the user submits the form on your site </li>
-<li> `grecaptcha.getResponse(opt_widget_id)`  این باید به یه چی لینک بشه after the user completes the reCAPTCHA challenge </li>
+<li> `arcaptcha-response` POST parameter when the user submits the form on your site </li>
+<li> `grecaptcha.getResponse(opt_widget_id)`  این باید به یه چی لینک بشه after the user completes the ARCaptcha challenge </li>
 <li> As a string argument to your `callback` اینم لینک داره function if `data-callback` is specified in either the `g-arcaptcha` tag attribute or the callback parameter in the `garcaptcha.render` method </li>
 </ul>
 
 ?????????/For Android library users, you can call the SafetyNetApi.RecaptchaTokenResult.getTokenResult() method to get response token if the status returns successful.?????????
 
 ## Token Restrictions
-Each arCAPTCHA user response token is valid for two minutes, and can only be verified once to prevent replay attacks. If you need a new token, you can re-run the arCAPTCHA verification.
+Each ARCaptcha user response token is valid for two minutes, and can only be verified once to prevent replay attacks. If you need a new token, you can re-run the ARCaptcha verification.
 
-After you get the response token, you need to verify it within two minutes with arCAPTCHA using the following API to ensure the token is valid.
+After you get the response token, you need to verify it within two minutes with ARCaptcha using the following API to ensure the token is valid.
 
 ## API Request
 
-URL: https://www.widget.arcaptcha.ir/arcaptcha/api/siteverify METHOD: POST
+URL: https://arcaptcha.ir/3/siteverify METHOD: POST
 
 | POST Parameter    | Description                                                                                           
 | ------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------- |
-| secret | Required. The shared key between your site and arCAPTCHA. |
-| response  | 	Required. The user response token provided by the arCAPTCHA client-side integration on your site. |
+| secret | Required. The shared key between your site and ARCaptcha. |
+| response  | 	Required. The user response token provided by the ARCaptcha client-side integration on your site. |
 | remoteip | Optional. The user's IP address. |
 
 ## API Response
@@ -39,7 +39,7 @@ The response is a JSON object:
 }
 ```
 
-For arCAPTCHA Android:
+For ARCaptcha Android:
 
 ```json
 {
