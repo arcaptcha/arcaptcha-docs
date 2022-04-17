@@ -1,22 +1,22 @@
-# arCAPTCHA v3
+# ARCaptcha v3
 
-arCAPTCHA v3 returns a score for each request without user friction. The score is based on interactions with your site and enables you to take an appropriate action for your site. Register arCAPTCHA v3 keys [here](https://arcaptcha.ir/).
+ARCaptcha v3 returns a score for each request without user friction. The score is based on interactions with your site and enables you to take an appropriate action for your site. Register ARCaptcha v3 keys [here](https://arcaptcha.ir/).
 
-This page explains how to enable and customize arCAPTCHA v3 on your webpage.
+This page explains how to enable and customize ARCaptcha v3 on your webpage.
 
 ## Placement on your website
 
-arCAPTCHA v3 will never interrupt your users, so you can run it whenever you like without affecting conversion. arCAPTCHA works best when it has the most context about interactions with your site, which comes from seeing both legitimate and abusive behavior. For this reason, we recommend including arCAPTCHA verification on forms or actions as well as in the background of pages for analytics.
+ARCaptcha v3 will never interrupt your users, so you can run it whenever you like without affecting conversion. ARCaptcha works best when it has the most context about interactions with your site, which comes from seeing both legitimate and abusive behavior. For this reason, we recommend including ARCaptcha verification on forms or actions as well as in the background of pages for analytics.
 
 :::note
-Note: arCAPTCHA tokens expire after two minutes. If you're protecting an action with arCAPTCHA, make sure to call execute when the user takes the action rather than on page load.
+Note: ARCaptcha tokens expire after two minutes. If you're protecting an action with ARCaptcha, make sure to call execute when the user takes the action rather than on page load.
 :::
 
-You can execute arCAPTCHA on as many actions as you want on the same page.
+You can execute ARCaptcha on as many actions as you want on the same page.
 
 ## Automatically bind the challenge to a button
 
-The easiest method for using arCAPTCHA v3 on your page is to include the necessary JavaScript resource and add a few attributes to your html button.
+The easiest method for using ARCaptcha v3 on your page is to include the necessary JavaScript resource and add a few attributes to your html button.
 
 
 1. Load the JavaScript API.
@@ -39,14 +39,14 @@ The easiest method for using arCAPTCHA v3 on your page is to include the necessa
 
 ```html
 <button class="g-recaptcha" 
-        data-sitekey="arCAPTCHA_site_key" 
+        data-sitekey="ARCaptcha_site_key" 
         data-callback='onSubmit' 
         data-action='submit'>Submit</button>
 ```
 
 ## Programmatically invoke the challenge
 
-If you wish to have more control over when arCAPTCHA runs, you can use the `execute` method in `grecaptcha` object. To do this, you need to add a `render` parameter to the arCAPTCHA script load.
+If you wish to have more control over when ARCaptcha runs, you can use the `execute` method in `grecaptcha` object. To do this, you need to add a `render` parameter to the ARCaptcha script load.
 
 1. Load the JavaScript API with your sitekey.
 
@@ -72,7 +72,7 @@ If you wish to have more control over when arCAPTCHA runs, you can use the `exec
 
 ## Interpreting the score
 
-arCAPTCHA v3 returns a score (1.0 is very likely a good interaction, 0.0 is very likely a bot). Based on the score, you can take variable action in the context of your site. Every site is different, but below are some examples of how sites use the score. As in the examples below, take action behind the scenes instead of blocking traffic to better protect your site.
+ARCaptcha v3 returns a score (1.0 is very likely a good interaction, 0.0 is very likely a bot). Based on the score, you can take variable action in the context of your site. Every site is different, but below are some examples of how sites use the score. As in the examples below, take action behind the scenes instead of blocking traffic to better protect your site.
 
 | Use case    | Recommendation                                                                                            
 | ------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------- |
@@ -82,25 +82,7 @@ arCAPTCHA v3 returns a score (1.0 is very likely a good interaction, 0.0 is very
 | e-commerce    | Put your real sales ahead of bots and identify risky transactions. |
 
 
-arCAPTCHA learns by seeing real traffic on your site. For this reason, scores in a staging environment or soon after implementing may differ from production. As arCAPTCHA v3 doesn't ever interrupt the user flow, you can first run arCAPTCHA without taking action and then decide on thresholds by looking at your traffic in the admin console. By default, you can use a threshold of 0.5.?????? اینو هم داریم الان؟
-
-
-## Actions
-
-arCAPTCHA v3 introduces a new concept: actions. When you specify an action name in each place you execute arCAPTCHA, you enable the following new features:
-
-<ul>
-<li>A detailed break-down of data for your top ten actions in the admin console اینو هم فک کنم نداریم فعلا
-</li>
-<li>
-Adaptive risk analysis based on the context of the action, because abusive behavior can vary.
-Importantly, when you verify the reCAPTCHA response, you should verify that the action name is the name you expect.
-</li>
-</ul>
-
-:::note
-Note: Actions might contain only alphanumeric characters, slashes, and underscores. Actions must not be user-specific.
-:::
+ARCaptcha learns by seeing real traffic on your site. For this reason, scores in a staging environment or soon after implementing may differ from production. As ARCaptcha v3 doesn't ever interrupt the user flow, you can first run ARCaptcha without taking action and then decide on thresholds by looking at your traffic in the admin console. By default, you can use a threshold of 0.5.
 
 ## Site Verify Response
 
