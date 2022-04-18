@@ -2,5 +2,13 @@
   "version.label": {
     "message": "3.0.0",
     "description": "The label for version 3.0.0"
+  },
+  "sidebar.defaultSidebar.category.ARCaptcha v3": {
+    "message": "آرکپچا نسخه ۲",
+    "description": "The label for category API in sidebar defaultSidebar"
+  },
+  "sidebar.defaultSidebar.category.verify": {
+    "message": "تائید کنید",
+    "description": "The label for category Widget methods in sidebar defaultSidebar"
   }
 }
