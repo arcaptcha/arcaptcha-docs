@@ -98,7 +98,7 @@ const config = {
                 to: "/1.0.0/installation",
               },
               {
-                label: "arCaptcha v3",
+                label: "ARCaptcha v3",
                 to: "/installation",
               },
             ],

@@ -1,59 +1,65 @@
-# Verifying the user's response
+---
+title: تائید کنید
+---
 
-This page explains how to verify a user's response to a ARCaptcha challenge from your application's backend.
 
-For web users, you can get the user’s response token in this way:
+# پاسخ کاربر را تائید کنید.
 
-- `arcaptcha-response` POST parameter when the user submits the form on your site
+این صفحه نحوه تأیید پاسخ کاربر به چالش آرکپچا را از طریق backend توضیح می دهد.
 
-## Token Restrictions
+برای کاربران وب، می توانید توکن پاسخ کاربر را از این طریق دریافت کنید:
+-`arcaptcha-response` زمانی که کاربر فرم را در سایت شما ارسال می کند، پارامتر را ارسال میکند.
 
-Each ARCaptcha user response token is valid for two minutes, and can only be verified once to prevent replay attacks. If you need a new token, you can re-run the ARCaptcha verification.
+## محدودیت های توکن
 
-After you get the response token, you need to verify it within two minutes with ARCaptcha using the following API to ensure the token is valid.
+هر توکن پاسخ کاربر به مدت دو دقیقه معتبر است و فقط یک بار برای جلوگیری از حملات مجدد قابل تأیید است. اگر به یک توکن جدید نیاز دارید، می توانید تأیید آرکپچا را دوباره اجرا کنید.
+
+پس از دریافت پاسخ توکن، باید آن را در عرض دو دقیقه با آرکپچا با استفاده از API زیر تأیید کنید تا مطمئن شوید که رمز معتبر است.
 
 ## API Request
 
-URL: https://www.widget.arcaptcha.ir/arcaptcha/api/siteverify METHOD: POST
+آدرس: https://www.widget.arcaptcha.ir/arcaptcha/api/siteverify 
 
-| POST Parameter | Description                                                                                       |
+متد: POST
+
+| پارامترهای  POST | توضیحات                                                                                       |
 | -------------- | ------------------------------------------------------------------------------------------------- |
-| secret         | Required. The shared key between your site and ARCaptcha.                                         |
-| response       | Required. The user response token provided by the ARCaptcha client-side integration on your site. |
-| remoteip       | Optional. The user's IP address.                                                                  |
+| secret         | ضروری. کلید مشترک بین سایت شما و آرکپچا.|
+| response       | ضروری. نشانه پاسخ کاربر ارائه شده توسط client-side آرکپچا در سایت شما. |
+| remoteip       | اختیاری. آدرس IP کاربر.|
 
-## API Response
+## پاسخ API
 
-The response is a JSON object:
-
-```json
-{
-  "success": true|false,
-  "challenge_ts": timestamp,  // timestamp of the challenge load (ISO format yyyy-MM-dd'T'HH:mm:ssZZ)
-  "hostname": string,         // the hostname of the site where the ARCaptcha was solved
-  "error-codes": [...]        // optional
-}
-```
-
-For ARCaptcha Android:
+پاسخ، یک آبجکت JSON است:
 
 ```json
 {
   "success": true|false,
-  "challenge_ts": timestamp,  // timestamp of the challenge load (ISO format yyyy-MM-dd'T'HH:mm:ssZZ)
-  "apk_package_name": string, // the package name of the app where the ARCaptcha was solved
-  "error-codes": [...]        // optional
+  "challenge_ts": timestamp,  // مهر زمانی بار چالش (ISO format yyyy-MM-dd'T'HH:mm:ssZZ)
+  "hostname": string,         // نام میزبان سایتی که آرکپچا در آن حل شد
+  "error-codes": [...]        // اختیاری
+}
+```
+
+برای اندروید:
+
+```json
+{
+  "success": true|false,
+  "challenge_ts": timestamp,  // مهر زمانی بار چالش (ISO format yyyy-MM-dd'T'HH:mm:ssZZ)
+  "apk_package_name": string, // نام پکیجی که در آن آرکپچا حل شد
+  "error-codes": [...]        // اختیاری
 }
 
 ```
 
-## Error code reference
+## مرجع کد خطا
 
-| Error code             | Description                                                                     |
+| کد خطا   | توضیحات                                                              |
 | ---------------------- | ------------------------------------------------------------------------------- |
-| missing-input-secret   | The secret parameter is missing.                                                |
-| invalid-input-secret   | The secret parameter is invalid or malformed.                                   |
-| missing-input-response | The response parameter is missing.                                              |
-| invalid-input-response | The response parameter is invalid or malformed.                                 |
-| bad-request            | The request is invalid or malformed.                                            |
-| timeout-or-duplicate   | The response is no longer valid: either is too old or has been used previously. |
+| missing-input-secret   | پارامتر مخفی وجود ندارد.  |
+| invalid-input-secret   | پارامتر مخفی نامعتبر یا نادرست است. |
+| missing-input-response | پارامتر پاسخ وجود ندارد.  |
+| invalid-input-response | پارامتر پاسخ نامعتبر یا نادرست است.   |
+| bad-request            | درخواست نامعتبر یا نادرست است. |
+| timeout-or-duplicate   | پاسخ دیگر معتبر نیست: یا خیلی قدیمی است یا قبلاً استفاده شده است. |

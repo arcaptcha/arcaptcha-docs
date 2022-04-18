@@ -15,9 +15,9 @@
     "message": "نصب و راه اندازی",
     "description": "The label of footer link with label=Installation linking to /1.0.0/installation"
   },
-  "link.item.label.arCaptcha v3": {
+  "link.item.label.ARCaptcha v3": {
     "message": "آرکپچا نسخه ۳",
-    "description": "The label of footer link with label=arCaptcha v3 linking to /installation"
+    "description": "The label of footer link with label=ARCaptcha v3 linking to /installation"
   },
   "link.item.label.Blog": {
     "message": "وبلاگ",

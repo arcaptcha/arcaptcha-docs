@@ -1,3 +1,7 @@
+---
+title: Verify
+---
+
 # Verifying the user's response
 
 This page explains how to verify a user's response to a ARCaptcha challenge from your application's backend.
