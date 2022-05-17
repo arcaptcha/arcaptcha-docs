@@ -99,3 +99,21 @@ You can then call `arcaptcha.render` with the container selector(id or class) or
   };
 </script>
 ```
+
+## Integration Testing: Test Keys
+
+If you intend to run automated integration tests that access a live server, the simplest approach is to use the following test ARCaptcha site keys that always generate a passcode without asking a question. Those passcodes can only be verified using the test secret.
+
+:::caution
+
+The test keys provide no anti-bot protection, so please double-check that you use them only in your test environment!
+
+:::
+
+### Test Key Set
+
+| Test parameter    | Value                            |
+| ----------------- | -------------------------------- |
+| `site-key`        | `0000000000`                     |
+| `secret-key`      | `00000000000000000000`           |
+| `arcaptcha-token` | `000000000000000000000000000000` |
