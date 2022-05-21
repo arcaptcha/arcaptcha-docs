@@ -4,7 +4,7 @@
 
 روش: `POST`.
 
-نقطه پایانی : `https://api.arcaptcha.ir/arcaptcha/api/verify`
+نقطه پایانی : `https://api.arcaptcha.co/arcaptcha/api/verify`
 
 درخواست پارامترها:
 
@@ -23,7 +23,7 @@
 مثال(NodeJS) :
 
 ```js
-const arcaptcha_api = "https://api.arcaptcha.ir/arcaptcha/api/verify";
+const arcaptcha_api = "https://api.arcaptcha.co/arcaptcha/api/verify";
 
 const result = await axios.post(arcaptcha_api, {
   challenge_id: req.body["arcaptcha-token"],

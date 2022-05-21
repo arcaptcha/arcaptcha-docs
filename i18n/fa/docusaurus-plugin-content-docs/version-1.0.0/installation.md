@@ -56,7 +56,7 @@ sidebar_position: 1
 برای تأیید واقعی و معتبر بودن توکن، اکنون باید آن را در API endpoint زیر تایید کنید:
 
 ```html
-https://api.arcaptcha.ir/arcaptcha/api/verify
+https://api.arcaptcha.co/arcaptcha/api/verify
 ```
 این endpoint انتظار یک درخواست POST با سه پارامتر را دارد. site_key، secret key و challenge id یعنی همان `arcaptcha-token` که از frontend شما برای تأیید به backend ارسال می‌شود.
 

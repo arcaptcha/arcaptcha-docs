@@ -18,7 +18,7 @@ title: تائید کنید
 
 ## API Request
 
-آدرس: https://www.widget.arcaptcha.ir/arcaptcha/api/siteverify 
+آدرس: https://www.widget.arcaptcha.co/arcaptcha/api/siteverify 
 
 متد: POST
 

@@ -55,7 +55,7 @@ By adding the client side code, you were able to render an ARCaptcha widget that
 To verify that the token is indeed real and valid, you must now verify it at the API endpoint:
 
 ```html
-https://api.arcaptcha.ir/arcaptcha/api/verify
+https://api.arcaptcha.co/arcaptcha/api/verify
 ```
 
 The endpoint expects a POST request with two parameters: your account secret and the `arcaptcha-tokena` token sent from your frontend HTML to your backend for verification.

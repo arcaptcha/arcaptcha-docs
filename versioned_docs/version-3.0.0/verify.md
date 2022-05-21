@@ -18,7 +18,7 @@ After you get the response token, you need to verify it within two minutes with 
 
 ## API Request
 
-URL: https://arcaptcha.ir/3/siteverify METHOD: POST
+URL: https://arcaptcha.co/3/siteverify METHOD: POST
 
 | POST Parameter | Description                                                                                       |
 | -------------- | ------------------------------------------------------------------------------------------------- |
