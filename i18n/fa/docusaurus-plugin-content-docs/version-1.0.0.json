@@ -1,0 +1,14 @@
+{
+  "version.label": {
+    "message": "1.0.0",
+    "description": "The label for version 1.0.0"
+  },
+  "sidebar.defaultSidebar.category.API": {
+    "message": "API",
+    "description": "The label for category API in sidebar defaultSidebar"
+  },
+  "sidebar.defaultSidebar.category.Widget methods": {
+    "message": "Widget methods",
+    "description": "The label for category Widget methods in sidebar defaultSidebar"
+  }
+}
