@@ -43,7 +43,7 @@ const config = {
     ],
   ],
   i18n: {
-    defaultLocale: 'fa',
+    defaultLocale: 'en',
     locales: ['en', 'fa'],
     localeConfigs: {
       en: {
