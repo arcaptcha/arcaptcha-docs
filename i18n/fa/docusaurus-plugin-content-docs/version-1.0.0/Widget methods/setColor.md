@@ -14,4 +14,4 @@ window.arcaptcha.setColor("#eee");
 <div class="arcaptcha" data-site-key="SITE_KEY" data-color="#eee"></div>
 ```
 
-می‌توانید هر رنگی را در ویجت امتحان کنید [صفحه نمایشی](https://arcaptcha.ir/demo)
+می‌توانید هر رنگی را در ویجت امتحان کنید [صفحه نمایشی](https://arcaptcha.co/demo)

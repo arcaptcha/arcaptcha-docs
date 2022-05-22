@@ -76,7 +76,7 @@ https://api.arcaptcha.co/arcaptcha/api/verify
 
 SECRET_KEY = "your_secret_key"    # replace with your secret key
 SITE_KEY   = "your_site_key"    # replace with your site key
-VERIFY_URL = "https://api.arcaptcha.ir/arcaptcha/api/verify"
+VERIFY_URL = "https://api.arcaptcha.co/arcaptcha/api/verify"
 
 # Retrieve token from post data with key 'arcaptcha-token'.
 token = request.POST_DATA['arcaptcha-token']

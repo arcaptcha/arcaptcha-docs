@@ -14,4 +14,4 @@ You can also do it by setting data-color property on widget container :
 <div class="arcaptcha" data-site-key="SITE_KEY" data-color="#eee"></div>
 ```
 
-You can try any color on widget in [demo-page](https://arcaptcha.ir/demo)
+You can try any color on widget in [demo-page](https://arcaptcha.co/demo)
