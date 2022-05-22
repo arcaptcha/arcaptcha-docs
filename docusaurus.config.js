@@ -8,7 +8,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
   title: "ARCaptcha",
   tagline: "ARCaptcha documentations",
-  url: "https://arcaptcha.ir",
+  url: "https://arcaptcha.co",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -95,7 +95,7 @@ const config = {
             items: [
               {
                 label: "Blog",
-                to: "https://arcaptcha.ir/blog",
+                to: "https://arcaptcha.co/blog",
               },
               {
                 label: "GitHub",

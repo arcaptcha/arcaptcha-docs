@@ -4,7 +4,7 @@ Description : Verify that user solved the challenge correctly.
 
 Method : `POST`
 
-Endpoint : `https://api.arcaptcha.ir/arcaptcha/api/verify`
+Endpoint : `https://api.arcaptcha.co/arcaptcha/api/verify`
 
 Request parameters :
 
@@ -23,7 +23,7 @@ Response body :
 Example(NodeJS) :
 
 ```js
-const arcaptcha_api = "https://api.arcaptcha.ir/arcaptcha/api/verify";
+const arcaptcha_api = "https://api.arcaptcha.co/arcaptcha/api/verify";
 
 const result = await axios.post(arcaptcha_api, {
   challenge_id: req.body["arcaptcha-token"],
