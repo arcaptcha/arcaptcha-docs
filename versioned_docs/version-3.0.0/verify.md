@@ -10,6 +10,10 @@ For web users, you can get the user’s response token in this way:
 
 - `arcaptcha-response` POST parameter when the user submits the form on your site
 
+- `rcaptcha.getResponse(opt_widget_id)` after the user completes the ARCaptcha challenge
+
+- As a string argument to your `callback` function if `data-callback` is specified in either the `arcaptcha` tag attribute.
+
 ## Token Restrictions
 
 Each ARCaptcha user response token is valid for two minutes, and can only be verified once to prevent replay attacks. If you need a new token, you can re-run the ARCaptcha verification.
