@@ -21,7 +21,7 @@ sidebar_position: 1
 <script src="https://widget.arcaptcha.ir/1/api.js" async defer></script>
 ```
 
-دوم، باید یک کانتینر DOM خالی اضافه کنید که ویجت آرکپچا به طور خودکار در آن درج شود. کانتینر یک `<div>` است و باید دارای کلاس **arcaptcha** و ویژگی **data-site-key** برای کلید عمومی سایت شما باشد.
+سپس، باید یک کانتینر DOM خالی اضافه کنید که ویجت آرکپچا به طور خودکار در آن درج شود. کانتینر یک `<div>` است و باید دارای کلاس **arcaptcha** و ویژگی **data-site-key** برای کلید عمومی سایت شما باشد.
 
 ```html
 <div class="arcaptcha" data-site-key="your_site_key"></div>

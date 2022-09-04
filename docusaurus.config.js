@@ -26,7 +26,15 @@ const config = {
         },
         docs: {
           routeBasePath: '/',
-          //sidebarPath: require.resolve("./sidebars.js"),
+          includeCurrentVersion: false,
+          versions: {
+            '3.0.0': {
+              banner:'none'
+            },
+            '1.0.0': {
+              banner:'none'
+            }
+          },
         },
         blog: {
           showReadingTime: true,
@@ -73,6 +81,10 @@ const config = {
             type: "localeDropdown",
             position: "left",
           },
+          {
+            type: "docsVersionDropdown",
+            position: "left",
+          },
         ],
       },
       footer: {
@@ -83,6 +95,10 @@ const config = {
             items: [
               {
                 label: "Installation",
+                to: "/1.0.0/installation",
+              },
+              {
+                label: "ARCaptcha v3",
                 to: "/installation",
               },
             ],
