@@ -8,10 +8,15 @@ The only way to configure ARCaptcha is to set custom attributes on the ARCaptcha
 | ------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------- |
 | data-site-key | `<your site key>`        | Required. Your public API site key.                                                                                   |
 | data-size     | `normal` \| `inivisible` | Optional. Set the size of the widget. Defaults to `normal`.                                                           |
-| data-callback | `<function name>`        | Optional. Called when the user submits a successful response. The `arcaptcha-token` token is passed to your callback. |
 | data-theme    | `light` \| `dark`        | Optional. Set the theme of widget. Defualts to `light`                                                                |
 | data-color    | color name or hex code   | Optional. Set color of every colored element in widget.                                                               |
 | data-lang     | `en` \| `fa`             | Optional. Set language of widget . Defaults to `fa`                                                                   |
+|    data-callback    |    `<function name>`    |Optional. Called when the user submits a successful response. The `arcaptcha-token` token is passed to your callback.  |  
+|    data-rendered-callback    |    `<function name>`    |Optional. This function would be called after rendering captcha |  
+|    data-error-callback    |    `<function name>`    |Optional. This function would be called after error |  
+|    data-reset-callback    |    `<function name>`    |Optional. This function would be called after reseting captcha |  
+|    data-expired-callback    |    `<function name>`    |Optional. This function would be called after expiring |  
+|    data-chlexpired-callback    |    `<function name>`    |Optional. This function would be called after challange expiration |  
 
 Besides the required `data-site-key`, you can add as many or as few configuration attributes as you want.
 
