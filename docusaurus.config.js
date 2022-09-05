@@ -28,10 +28,10 @@ const config = {
           routeBasePath: '/',
           includeCurrentVersion: false,
           versions: {
-            '3.0.0': {
+            '1.0.0': {
               banner:'none'
             },
-            '1.0.0': {
+            '3.0.0': {
               banner:'none'
             }
           },
@@ -95,11 +95,11 @@ const config = {
             items: [
               {
                 label: "Installation",
-                to: "/1.0.0/installation",
+                to: "/installation",
               },
               {
                 label: "ARCaptcha v3",
-                to: "/installation",
+                to: "/3.0.0/installation",
               },
             ],
           },

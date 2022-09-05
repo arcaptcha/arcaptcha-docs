@@ -74,7 +74,7 @@ If you wish to have more control over when ARCaptcha runs, you can use the `exec
 </script>
 ```
 
-3. Send the token immediately to your backend with the request to [verify](/verify).
+3. Send the token immediately to your backend with the request to [verify](/3.0.0/verify).
 
 ## Interpreting the score
 
@@ -91,7 +91,7 @@ ARCaptcha learns by seeing real traffic on your site. For this reason, scores in
 
 ## Site Verify Response
 
-Make the request to [verify the response token](/verify) as with ARCaptcha v2 or Invisible ARCaptcha.
+Make the request to [verify the response token](/3.0.0/verify) as with ARCaptcha v2 or Invisible ARCaptcha.
 
 The response is a JSON object:
 
