@@ -79,7 +79,7 @@ Triggers the ARCaptcha workflow programmatically. Generally used in invisible mo
 arcaptcha
   .execute()
   .then(({ arcaptcha_token }) => {
-    console.log(token);
+    console.log(arcaptcha_token);
   })
   .catch((err) => {
     console.error(err);

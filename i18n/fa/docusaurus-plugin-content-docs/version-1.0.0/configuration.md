@@ -79,7 +79,7 @@ ARCaptcha API شیء آرکپچا را نشان می دهد که متدهایی 
 arcaptcha
   .execute()
   .then(({ arcaptcha_token }) => {
-    console.log(token);
+    console.log(arcaptcha_token);
   })
   .catch((err) => {
     console.error(err);
