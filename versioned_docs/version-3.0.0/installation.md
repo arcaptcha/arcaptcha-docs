@@ -57,14 +57,14 @@ If you wish to have more control over when ARCaptcha runs, you can use the `exec
 <script src="https://widget.arcaptcha.ir/3/api.js?render=ARCaptcha_site_key"></script>
 ```
 
-2. Call `arcaptcha.execute` on each action you wish to protect.
+2. Call `rcaptcha.execute` on each action you wish to protect.
 
 ```html
 <script>
   function onClick(e) {
     e.preventDefault();
-    arcaptcha.ready(function () {
-      arcaptcha
+    rcaptcha.ready(function () {
+      rcaptcha
         .execute("ARCaptcha_site_key", { action: "submit" })
         .then(function (token) {
           // Add your logic to submit to your backend server here.
@@ -108,5 +108,5 @@ The response is a JSON object:
 
 ## Tips
 
-1. `arcaptcha.ready()` runs your function when the ARCaptcha library loads. To avoid race conditions with the api.js, include the api.js before your scripts that call arcaptcha, or continue to use the onload callback that's defined with the v2 API.
+1. `rcaptcha.ready()` runs your function when the ARCaptcha library loads. To avoid race conditions with the api.js, include the api.js before your scripts that call arcaptcha, or continue to use the onload callback that's defined with the v2 API.
 2. Try hooking the `execute` call to interesting or sensitive actions like Register, Password Reset, Purchase, or Play.
