@@ -8,7 +8,8 @@
 |  Laravel   | [laravel](https://github.com/arcaptcha/arcaptcha-laravel)       |
 | PHP   | [php](https://github.com/arcaptcha/arcaptcha-php) |
 | Python  | [arcaptcha-python](https://github.com/evokelektrique/arcaptcha-python)         |
-| Ruby   | [arcaptcha-ruby](https://arcaptcha.ir/rec-redirect?links=https%3A%2F%2Fgithub.com%2Fevokelektrique%2Farcaptcha-ruby)     |
+| Ruby   | [arcaptcha-ruby](https://github.com/evokelektrique/arcaptcha-ruby)     |
 | React  | [arcaptcha-react](https://github.com/arcaptcha/Arcaptcha-React-js)             |
 | Vue  | [arcaptcha-vue](https://github.com/arcaptcha/arcaptcha-vue)        |
 | Angular  | [arcaptcha-angular](https://github.com/arcaptcha/arcaptcha-angular)             |
+| Elixir | [arcaptcha-elixir](https://github.com/evokelektrique/arcaptcha-elixir)
