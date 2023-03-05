@@ -7,14 +7,10 @@ RUN yarn build
 
 # Deployment step
 
-FROM busybox:1.35 as deploy
+FROM nginx:1.16.0-alpine
 
-RUN adduser -D static
-USER static
-WORKDIR /home/static
+COPY --from=build /usr/src/app/nginx.conf /etc/nginx/
 
-COPY --from=build /usr/src/app/build/ ./
+COPY --from=build /usr/src/app/build /usr/share/nginx/html
 
-EXPOSE 3000
-
-CMD ["busybox", "httpd", "-f", "-v", "-p", "3000"]
+CMD ["nginx", "-g", "daemon off;"]
