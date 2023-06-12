@@ -19,6 +19,9 @@ sidebar_position: 1
 
 ```html
 <script src="https://widget.arcaptcha.ir/1/api.js" async defer></script>
+
+<!-- You can set domain manually! (Usecase : When widget is going to be load on Mobile Webviews) -->
+<script src="https://widget.arcaptcha.ir/1/api.js?domain=example.com" async defer></script>
 ```
 
 سپس، باید یک کانتینر DOM خالی اضافه کنید که ویجت آرکپچا به طور خودکار در آن درج شود. کانتینر یک `<div>` است و باید دارای کلاس **arcaptcha** و ویژگی **data-site-key** برای کلید عمومی سایت شما باشد.

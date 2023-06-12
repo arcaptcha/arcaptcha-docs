@@ -18,6 +18,9 @@ ARCaptcha requires two small pieces of client side code to render a captcha widg
 
 ```html
 <script src="https://widget.arcaptcha.ir/1/api.js" async defer></script>
+
+<!-- You can set domain manually! (Usecase : When widget is going to be load on Mobile Webviews) -->
+<script src="https://widget.arcaptcha.ir/1/api.js?domain=example.com" async defer></script>
 ```
 
 Second, you must add an empty DOM container where the ARCaptcha widget will be inserted automatically. The container is a `<div>`and must have class **arcaptcha** and a **data-site-key** attribute set to your public site key.
