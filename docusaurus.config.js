@@ -33,6 +33,9 @@ const config = {
             },
             '3.0.0': {
               banner: 'none'
+            },
+            'fraud-1.0.0': {
+              banner: 'none'
             }
           },
         },
