@@ -1,13 +1,13 @@
-FROM node:16.14.0 AS build
+FROM node:20 AS build
 WORKDIR /usr/src/app
 COPY package*.json ./
-RUN yarn install
+RUN npm install
 COPY . .
-RUN yarn build
+RUN npm run build
 
 # Deployment step
 
-FROM nginx:1.16.0-alpine
+FROM nginx:1.25
 
 COPY --from=build /usr/src/app/nginx.conf /etc/nginx/
 
