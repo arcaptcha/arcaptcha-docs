@@ -6,7 +6,6 @@
 
 ساده ترین راه برای انجام این کار، اختصاص یک کلاس `arcaptcha.` به هر دکمه یا فیلد ورود (input) است. مانند قبل، باید کلید سایت خود را در ویژگی `data-site-key` که به عنصر `<button>` اختصاص داده شده است، اضافه کنید. علاوه بر این، تمام ویژگی های \*-data (برای تغییر قالب، رنگ و زبان) در اینجا قابل اجرا هستند.
 
-
 ```html
 <button
   class="arcaptcha"
@@ -16,8 +15,8 @@
   Submit
 </button>
 ```
-دقیقاً مانند قبل، `arcaptcha-token` پس از تکمیل موفقیت آمیز چالش آرکپچا به تابع callback ارسال می شود. اگر آرکپچا مخفی را به یک دکمه ارسال متصل کنید، باید یک data-callback را برای رسیدگی به ارسال فرم مشخص کنید. در بیشتر موارد، شما می خواهید از callback برای ارسال دستی فرم استفاده کنید.
 
+دقیقاً مانند قبل، `arcaptcha-token` پس از تکمیل موفقیت آمیز چالش آرکپچا به تابع callback ارسال می شود. اگر آرکپچا مخفی را به یک دکمه ارسال متصل کنید، باید یک data-callback را برای رسیدگی به ارسال فرم مشخص کنید. در بیشتر موارد، شما می خواهید از callback برای ارسال دستی فرم استفاده کنید.
 
 ```html
 <script type="text/javascript">
@@ -36,14 +35,14 @@
 
 اگر ترجیح می‌دهید روند کار آرکپچا را از طریق یک تریگر (trigger) جاوا اسکریپت فراخوانی کنید (در مواردی مانند کلیک باکس یا بارگذاری صفحه)، باید از تابع `arcaptcha.execute(widgetID)` برای راه‌اندازی آن فرآیند روی یک `widgetID` استفاده کنید.
 
-برای اطلاعات بیشتر در مورد تابع `arcaptcha.execute` و آرگومان `widgetID`، می توانید به  [بخش API جاوا اسکریپت در صفحه پیکربندی](/configuration#arcaptchaexecutewidgetid) مراجعه کنید.
+برای اطلاعات بیشتر در مورد تابع `arcaptcha.execute` و آرگومان `widgetID`، می توانید به [بخش API جاوا اسکریپت در صفحه پیکربندی](/configuration#arcaptchaexecutewidgetid) مراجعه کنید.
 
 #### مثال
 
 ```html
 <html>
   <head>
-    <script src="https://widget.arcaptcha.ir/1/api.js" async defer></script>
+    <script src="https://cap.si24.ir/widget/1/api.js" async defer></script>
 
     <script>
       function onSubmit(token) {

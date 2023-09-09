@@ -1,3 +1,4 @@
+http://localhost:3000//prerequisite
 http://localhost:3000//installation
 http://localhost:3000//configuration
 http://localhost:3000//invisible%20captcha
