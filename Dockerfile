@@ -7,7 +7,7 @@ RUN npm run build
 
 # Deployment step
 
-FROM nginx:1.25
+FROM nginx:1.25-alpine
 
 COPY --from=build /usr/src/app/nginx.conf /etc/nginx/
 
