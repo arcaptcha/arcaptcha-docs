@@ -16,9 +16,10 @@ Request parameters :
 
 Response body :
 
-| Parameters | Description                               |
-| ---------- | ----------------------------------------- |
-| success    | Status of challenge. Can be true or false |
+| Parameters            | Description                               |
+| --------------------- | ----------------------------------------- |
+| success               | Status of challenge. Can be true or false |
+| error-codes(optional) | A brief description about possible errors |
 
 Example(NodeJS) :
 
@@ -36,3 +37,16 @@ if (result.data.success) {
   // throw Error
 }
 ```
+
+## Error code reference
+
+| Error code             | Description                                                                           |
+| ---------------------- | ------------------------------------------------------------------------------------- |
+| missing-input-sitekey  | The `site_key` parameter is missing.                                                  |
+| missing-input-secret   | The `secret_key` parameter is missing.                                                |
+| missing-input-response | The `challenge_id` is missing.                                                        |
+| bad-request            | The request is invalid or malformed.                                                  |
+| invalid-input-sitekey  | The `site_key` parameter is invalid or malformed.                                     |
+| invalid-input-secret   | The `secret_key` parameter is invalid or malformed.                                   |
+| invalid-input-response | The `challenge_id` parameter is invalid or malformed.                                 |
+| timeout-or-duplicate   | The `challenge_id` is no longer valid: either is too old or has been used previously. |
