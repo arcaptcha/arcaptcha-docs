@@ -1,10 +1,10 @@
-# تأیید کنید
+# Verify
 
 توضیحات: بررسی کنید که کاربر چالش را به درستی حل کرده است.
 
 روش: `POST`.
 
-نقطه پایانی : `https://cap.si24.ir/api/arcaptcha/api/verify`
+نقطه پایانی : `https://172.24.105.155/api/arcaptcha/api/verify`
 
 درخواست پارامترها:
 
@@ -23,7 +23,7 @@
 مثال(NodeJS) :
 
 ```js
-const arcaptcha_api = "https://cap.si24.ir/api/arcaptcha/api/verify";
+const arcaptcha_api = "https://172.24.105.155/api/arcaptcha/api/verify";
 
 const result = await axios.post(arcaptcha_api, {
   challenge_id: req.body["arcaptcha-token"],

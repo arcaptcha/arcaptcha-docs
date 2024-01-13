@@ -17,11 +17,11 @@ sidebar_position: 1
 برای نمایش و استفاده از ویجت آرکپچا در صفحه HTML مورد نظر به دو قطعه کد کوچک سمت کاربر نیاز است. ابتدا باید کد جاوا اسکریپت آرکپچا را در جایی از صفحه HTML خود قرار دهید. `<script>` باید از طریق HTTPS بارگیری شود و می تواند در هر نقطه از صفحه قرار گیرد. داخل تگ `<head>` یا بلافاصله بعد از کانتینر `arcaptcha.` هر دو خوب هستند.
 
 ```html
-<script src="https://cap.si24.ir/widget1/api.js" async defer></script>
+<script src="https://172.24.105.155/widget1/api.js" async defer></script>
 
 <!-- You can set domain manually! (Usecase : When widget is going to be load on Mobile Webviews) -->
 <script
-  src="https://cap.si24.ir/widget1/api.js?domain=example.com"
+  src="https://172.24.105.155/widget1/api.js?domain=example.com"
   async
   defer
 ></script>
@@ -41,7 +41,7 @@ sidebar_position: 1
 <html>
   <head>
     <title>ARCaptcha Demo</title>
-    <script src="https://cap.si24.ir/widget/1/api.js" async defer></script>
+    <script src="https://172.24.105.155/widget/1/api.js" async defer></script>
   </head>
   <body>
     <form action="" method="POST">
@@ -62,7 +62,7 @@ sidebar_position: 1
 برای تأیید واقعی و معتبر بودن توکن، اکنون باید آن را در API endpoint زیر تایید کنید:
 
 ```html
-https://cap.si24.ir/api/arcaptcha/api/verify
+https://172.24.105.155/api/arcaptcha/api/verify
 ```
 
 این endpoint انتظار یک درخواست POST با سه پارامتر را دارد. site_key، secret key و challenge id یعنی همان `arcaptcha-token` که از frontend شما برای تأیید به backend ارسال می‌شود.
@@ -82,7 +82,7 @@ https://cap.si24.ir/api/arcaptcha/api/verify
 
 SECRET_KEY = "your_secret_key"    # replace with your secret key
 SITE_KEY   = "your_site_key"    # replace with your site key
-VERIFY_URL = "https://cap.si24.ir/api/arcaptcha/api/verify"
+VERIFY_URL = "https://172.24.105.155/api/arcaptcha/api/verify"
 
 # Retrieve token from post data with key 'arcaptcha-token'.
 token = request.POST_DATA['arcaptcha-token']

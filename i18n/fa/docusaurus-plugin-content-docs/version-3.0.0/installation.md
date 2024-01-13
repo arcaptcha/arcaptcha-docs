@@ -21,7 +21,7 @@
 1. API جاوا اسکریپت را بارگیری کنید.
 
 ```html
-<script src="https://cap.si24.ir/widget/3/api.js" async defer></script>
+<script src="https://172.24.105.155/widget/3/api.js" async defer></script>
 ```
 
 2. برای مدیریت توکن، یک تابع callback اضافه کنید.
@@ -54,7 +54,7 @@
 1. API جاوا اسکریپت را با کلید سایت خود بارگیری کنید.
 
 ```html
-<script src="https://cap.si24.ir/widget/3/api.js?render=ARCaptcha_site_key"></script>
+<script src="https://172.24.105.155/widget/3/api.js?render=ARCaptcha_site_key"></script>
 ```
 
 2. `rcaptcha.execute` را برای هر اقدامی که می‌خواهید محافظت کنید، فراخوانی کنید.

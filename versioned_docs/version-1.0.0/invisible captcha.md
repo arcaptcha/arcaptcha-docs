@@ -42,7 +42,7 @@ For more information on the `arcaptcha.execute` function and the `widgetID` argu
 ```html
 <html>
   <head>
-    <script src="https://cap.si24.ir/widget/1/api.js" async defer></script>
+    <script src="https://172.24.105.155/widget/1/api.js" async defer></script>
 
     <script>
       function onSubmit(token) {

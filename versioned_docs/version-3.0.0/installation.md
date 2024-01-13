@@ -21,7 +21,7 @@ The easiest method for using ARCaptcha v3 on your page is to include the necessa
 1. Load the JavaScript API.
 
 ```html
-<script src="https://cap.si24.ir/widget/3/api.js" async defer></script>
+<script src="https://172.24.105.155/widget/3/api.js" async defer></script>
 ```
 
 2. Add a callback function to handle the token.
@@ -54,7 +54,7 @@ If you wish to have more control over when ARCaptcha runs, you can use the `exec
 1. Load the JavaScript API with your sitekey.
 
 ```html
-<script src="https://cap.si24.ir/widget/3/api.js?render=ARCaptcha_site_key"></script>
+<script src="https://172.24.105.155/widget/3/api.js?render=ARCaptcha_site_key"></script>
 ```
 
 2. Call `rcaptcha.execute` on each action you wish to protect.

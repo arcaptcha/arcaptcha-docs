@@ -22,7 +22,7 @@ title: تائید کنید
 
 ## API Request
 
-آدرس: https://cap.si24.ir/widget/arcaptcha/api/siteverify
+آدرس: https://172.24.105.155/widget/arcaptcha/api/siteverify
 
 متد: POST
 

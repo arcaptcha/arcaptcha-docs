@@ -17,11 +17,13 @@ You embed the ARCaptcha widget on your site. For example, on a login form. The u
 ARCaptcha requires two small pieces of client side code to render a captcha widget on an HTML page. First, you must include the ARCaptcha javascript resource somewhere in your HTML page. The `<script>` must be loaded via HTTPS and can be placed anywhere on the page. Inside the `<head>` tag or immediately after the `.arcaptcha` container are both fine.
 
 ```html
-<script src="https://cap.si24.ir/widget/1/api.js" async defer></script>
+<script src="https://172.24.105.155/widget/1/api.js" async defer></script>
 
 <!-- You can set domain manually! (Usecase : When widget is going to be load on Mobile Webviews) -->
 <script
-  src="https://cap.si24.ir/widget/1/api.js?domain=example.com" async defer
+  src="https://172.24.105.155/widget/1/api.js?domain=example.com"
+  async
+  defer
 ></script>
 ```
 
@@ -39,7 +41,7 @@ Here's a full example where ARCaptcha is being used to protect a signup form fro
 <html>
   <head>
     <title>ARCaptcha Demo</title>
-    <script src="https://cap.si24.ir/widget/1/api.js" async defer></script>
+    <script src="https://172.24.105.155/widget/1/api.js" async defer></script>
   </head>
   <body>
     <form action="" method="POST">
@@ -60,7 +62,7 @@ By adding the client side code, you were able to render an ARCaptcha widget that
 To verify that the token is indeed real and valid, you must now verify it at the API endpoint:
 
 ```html
-https://cap.si24.ir/api/arcaptcha/api/verify
+https://172.24.105.155/api/arcaptcha/api/verify
 ```
 
 The endpoint expects a POST request with two parameters: your account secret and the `arcaptcha-tokena` token sent from your frontend HTML to your backend for verification.
@@ -80,7 +82,7 @@ Tokens can only be used once and must be verified within a short period of time 
 
 SECRET_KEY = "your_secret_key"    # replace with your secret key
 SITE_KEY   = "your_site_key"    # replace with your site key
-VERIFY_URL = "https://cap.si24.ir/api/arcaptcha/api/verify"
+VERIFY_URL = "https://172.24.105.155/api/arcaptcha/api/verify"
 
 # Retrieve token from post data with key 'arcaptcha-token'.
 token = request.POST_DATA['arcaptcha-token']

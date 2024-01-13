@@ -8,7 +8,7 @@ After that, you must include the ARCaptcha javascript resource somewhere in your
 
 ```html
 <script
-  src="https://cap.si24.ir/widget/3/api.js?fraud=true&site_key=YOUR_SITE_KEY"
+  src="https://172.24.105.155/widget/3/api.js?fraud=true&site_key=YOUR_SITE_KEY"
   defer
 ></script>
 ```
