@@ -105,6 +105,40 @@ You can then call `arcaptcha.render` with the container selector(id or class) or
 </script>
 ```
 
+## Error handling(Client Side)
+
+By setting `data-error-callback` on ARCaptcha widget you can access different types of errors may be happened on the client side.
+
+```html
+<div
+  class="arcaptcha"
+  data-site-key="your_site_key"
+  data-error-callback="onError"
+></div>
+
+<script>
+  function onError({ code, message }) {
+    console.log(code, "-", message); // '201-answer-server-error:500-Server error'
+  }
+</script>
+```
+
+We categorized errors by codes like HTTP protocol:
+
+- `1xx`: Create phase errors
+- `2xx`: Answer phase errors
+
+In this table you can see all supported errors thrown by our widget:
+
+| Code  | Name                   | Description                                                        | Message Example                               |
+| ----- | ---------------------- | ------------------------------------------------------------------ | --------------------------------------------- |
+| `101` | `CREATE_SERVER_ERROR`  | When there is an error in our server side in create phase          | `create-server-error:404-Website not found`   |
+| `102` | `CREATE_NETWORK_ERROR` | When client can't create connection to our servers in create phase | `create-network-error:Network is unreachable` |
+| `201` | `ANSWER_SERVER_ERROR`  | When there is an error in our server side in answer phase          | `answer-server-error:500-Server error`        |
+| `202` | `ANSWER_NETWOR_ERROR`  | When client can't create connection to our servers in answer phase | `answer-network-error:Network is unreachable` |
+| `203` | `ANSWER_WRONG_ERROR`   | When client submits wrong answer                                   | `answer-wrong-error`                          |
+| `401` | `UNKNOWN_ERROR`        | any unknown error                                                  | `unknown-error`                               |
+
 ## Integration Testing: Test Keys
 
 If you intend to run automated integration tests that access a live server, the simplest approach is to use the following test ARCaptcha site keys that always generate a passcode without asking a question. Those passcodes can only be verified using the test secret.
