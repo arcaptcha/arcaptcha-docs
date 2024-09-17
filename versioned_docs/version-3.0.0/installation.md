@@ -39,7 +39,7 @@ The easiest method for using ARCaptcha v3 on your page is to include the necessa
 ```html
 <button
   class="arcaptcha"
-  data-sitekey="ARCaptcha_site_key"
+  data-site-key="ARCaptcha_site_key"
   data-callback="onSubmit"
   data-action="submit"
 >

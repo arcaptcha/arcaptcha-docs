@@ -39,7 +39,7 @@
 ```html
 <button
   class="arcaptcha"
-  data-sitekey="ARCaptcha_site_key"
+  data-site-key="ARCaptcha_site_key"
   data-callback="onSubmit"
   data-action="submit"
 >

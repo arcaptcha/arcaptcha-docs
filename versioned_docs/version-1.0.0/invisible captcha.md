@@ -69,7 +69,7 @@ For more information on the `arcaptcha.execute` function and the `widgetID` argu
       Name: (required) <input id="field" name="field" />
       <div
         class="arcaptcha"
-        data-sitekey="your_site_key"
+        data-site-key="your_site_key"
         data-callback="onSubmit"
         data-size="invisible"
       ></div>
