@@ -14,6 +14,8 @@ Request parameters :
 | site_key     | Required. The sitekey you expect to see.                                     |
 | secret_key   | Required. Your account secret key.                                           |
 
+**Important: Don't forget to set `Content-Type: application/json` in your request.**
+
 Response body :
 
 | Parameters            | Description                               |
