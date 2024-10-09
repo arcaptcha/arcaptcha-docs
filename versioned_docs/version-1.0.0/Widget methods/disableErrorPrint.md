@@ -1,5 +1,7 @@
 # disableErrorPrint(value)
 
+** Deprecated: Please refer to [this](/configuration#arcaptcha-container-configuration) section instead of using this function and use `data-error-print` to disable this feature.**
+
 _Disable or Enable error printed bottom of the captcha box_
 
 | Parameters | Type      | Default | Description                                                        |
