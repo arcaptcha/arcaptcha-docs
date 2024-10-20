@@ -18,7 +18,10 @@
 | data-reset-callback      | reset_callback      | `<function name>`        | اختیاری. این تابع پس از بازگذاری مجدد کپچا فراخوانی می شود.                                                             |
 | data-expired-callback    | expired_callback    | `<function name>`        | اختیاری. این تابع پس از انقضا فراخوانی می شود.                                                                          |
 | data-chlexpired-callback | chlexpired_callback | `<function name>`        | اختیاری. این تابع پس از انقضای چالش فراخوانی می شود.                                                                    |
-| data-blocked-callback    | vlocked_callback    | `<function name>`        | اختیاری. این تابع پس ازینکه کاربر به عنوان ربات تشخیص داده شد فراخوانی می‌ شود.                                         |
+| data-blocked-callback    | blocked_callback    | `<function name>`        | اختیاری. این تابع پس ازینکه کاربر به عنوان ربات تشخیص داده شد فراخوانی می‌ شود.                                         |
+| data-clicked-callback    | clicked_callback    | `<function name>`        | اختیاری. این تابع پس ازینکه کاربر روی باکس کلیک کرد و یا تابع `execute` فراخوانی شد، اجرا می‌گردد.                      |
+| data-opened-callback     | opened_callback     | `<function name>`        | اختیاری. این تابع بعد از باز شدن یک چالش کپچا فراخوانی می‌شود.                                                          |
+| data-closed-callback     | closed_callback     | `<function name>`        | اختیاری. این تابع بعد از بسته شدن چالش کپچا توسط کاربر و یا به صورت اتوماتیک فراخوانی می‌شود.                           |
 
 علاوه بر `data-site-key` مورد نیاز، می توانید هر تعداد یا چند ویژگی پیکربندی را که می خواهید اضافه کنید.
 

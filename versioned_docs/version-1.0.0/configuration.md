@@ -19,6 +19,9 @@ The only way to configure ARCaptcha is to set custom attributes on the ARCaptcha
 | data-expired-callback    | expired_callback    | `<function name>`        | Optional. This function would be called after expiring                                                                |
 | data-chlexpired-callback | chlexpired_callback | `<function name>`        | Optional. This function would be called after challange expiration                                                    |
 | data-blocked-callback    | blocked_callback    | `<function name>`        | Optional. This function would be called after user is detected as bot and blocked by our system                       |
+| data-clicked-callback    | clicked_callback    | `<function name>`        | Optional. This function would be called after user clicked on the box or `execute` method is called                   |
+| data-opened-callback     | opened_callback     | `<function name>`        | Optional. This function would be called after a challenge is opened                                                   |
+| data-closed-callback     | closed_callback     | `<function name>`        | Optional. This function would be called after a challenge is closed by user,programmatically or expiration            |
 
 Besides the required `data-site-key`, you can add as many or as few configuration attributes as you want.
 
