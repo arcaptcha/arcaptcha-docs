@@ -28,7 +28,7 @@ const config = {
           routeBasePath: '/',
           includeCurrentVersion: false,
           versions: {
-            '1.0.0': {
+            '4.0.0': {
               banner: 'none'
             },
             '3.0.0': {
