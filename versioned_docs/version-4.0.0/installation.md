@@ -86,8 +86,11 @@ token = request.POST_DATA['arcaptcha-token']
 # Build payload with secret key and site_key and challenge_id.
 data = { 'secret_key': SECRET_KEY, 'challenge_id': token, 'site_key':SITE_KEY }
 
+# Important: Set Content-Type header to application/json
+headers = { 'Content-Type': 'application/json' }
+
 # Make POST request with data payload to ARCaptcha API endpoint.
-response = http.post(url=VERIFY_URL, data=data)
+response = http.post(url=VERIFY_URL, data=data, headers=headers)
 
 # Parse JSON from response. Check for success or error codes.
 response_json = JSON.parse(response.data)
