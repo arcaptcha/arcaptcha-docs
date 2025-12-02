@@ -32,7 +32,7 @@ Backend libraries help you verify ARCaptcha responses on your server.
 | ------------------ | ----------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | Node.js            | Official Node.js library for server-side ARCaptcha verification   | [arcaptcha-nodejs](https://github.com/arcaptcha/arcaptcha-nodejs)      |
 | PHP                | PHP library for server-side ARCaptcha verification                | [arcaptcha-php](https://github.com/arcaptcha/arcaptcha-php)            |
-| Python             | Python library for server-side ARCaptcha verification             | [arcaptcha-python](https://github.com/evokelektrique/arcaptcha-python) |
+| Python             | Python library for server-side ARCaptcha verification             | [arcaptcha-python](https://github.com/arcaptcha/arcaptcha-python) |
 | Ruby               | Ruby library for server-side ARCaptcha verification               | [arcaptcha-ruby](https://github.com/evokelektrique/arcaptcha-ruby)     |
 | Go                 | Go library for server-side ARCaptcha verification                 | [arcaptcha-go](https://github.com/arcaptcha/arcaptcha-go)              |
 | C#                 | C# library for server-side ARCaptcha verification                 | [Arcaptcha.CSharp](https://github.com/arcaptcha/Arcaptcha.CSharp)      |

@@ -32,7 +32,7 @@ SDK های بومی موبایل برای برنامه‌های Android.
 | ------------ | ------------------------------------------------------- | ---------------------------------------------------------------------- |
 | Node.js      | کتابخانه رسمی Node.js برای تأیید ARCaptcha در سمت سرور  | [arcaptcha-nodejs](https://github.com/arcaptcha/arcaptcha-nodejs)      |
 | PHP          | کتابخانه PHP برای تأیید ARCaptcha در سمت سرور           | [arcaptcha-php](https://github.com/arcaptcha/arcaptcha-php)            |
-| Python       | کتابخانه Python برای تأیید ARCaptcha در سمت سرور        | [arcaptcha-python](https://github.com/evokelektrique/arcaptcha-python) |
+| Python       | کتابخانه Python برای تأیید ARCaptcha در سمت سرور        | [arcaptcha-python](https://github.com/arcaptcha/arcaptcha-python) |
 | Ruby         | کتابخانه Ruby برای تأیید ARCaptcha در سمت سرور          | [arcaptcha-ruby](https://github.com/evokelektrique/arcaptcha-ruby)     |
 | Go           | کتابخانه Go برای تأیید ARCaptcha در سمت سرور            | [arcaptcha-go](https://github.com/arcaptcha/arcaptcha-go)              |
 | C#           | کتابخانه C# برای تأیید ARCaptcha در سمت سرور            | [Arcaptcha.CSharp](https://github.com/arcaptcha/Arcaptcha.CSharp)      |
