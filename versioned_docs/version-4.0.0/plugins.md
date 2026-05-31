@@ -43,6 +43,13 @@ Backend libraries help you verify ARCaptcha responses on your server.
 
 Plugins for content management systems and platforms.
 
-| Platform  | Description                                                   | Link                                                                                                                                                   |
-| --------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| WordPress | WordPress plugin for integrating ARCaptcha in WordPress sites | [arcaptcha-wordpress](https://arcaptcha.co/fa/blog/%D8%A7%D9%81%D8%B2%D9%88%D9%86%D9%87-%D9%88%D8%B1%D8%AF%D9%BE%D8%B1%D8%B3-%DA%A9%D9%BE%DA%86%D8%A7) |
+| Platform                         | Description                                                                 | Link                                                                                                                                                                                                                                      |
+| -------------------------------- | --------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| WordPress                        | WordPress plugin for integrating ARCaptcha in WordPress sites               | [Documentation](https://arcaptcha.co/fa/blog/%D8%A7%D9%81%D8%B2%D9%88%D9%86%D9%87-%D9%88%D8%B1%D8%AF%D9%BE%D8%B1%D8%B3-%DA%A9%D9%BE%DA%86%D8%A7) · [Download (v1.14)](https://s3.thr1.sotoon.ir/citadel/public/arcaptcha.1.14.zip)       |
+| WordPress (Gravity Forms, Community) | Community-maintained WordPress plugin for integrating ARCaptcha with Gravity Forms | [Download](https://s3.thr1.sotoon.ir/citadel/public/gf-arcaptcha-addon.zip)                                                                                                                                                               |
+
+## Acknowledgments
+
+We are grateful to the community members who contribute libraries and plugins that extend ARCaptcha to more platforms.
+
+- **[Parisa](https://parvizi96.ir/en)** — for developing and maintaining the community WordPress plugin for Gravity Forms.
