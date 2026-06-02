@@ -50,7 +50,7 @@ The widget detects the end user's region. Challenges from the foreign cluster ar
 
 ## Step 2: Verify on the correct API
 
-After the user completes the captcha, your backend receives `challenge_id` and a token. Choose the verify URL as follows:
+After the user completes the captcha, your backend receives the `arcaptcha-token` value from the frontend. Send it to the verify API as `challenge_id`. Choose the verify URL as follows:
 
 ```
 challenge_id starts with "eu-"?
@@ -97,7 +97,8 @@ def get_verify_url(challenge_id: str) -> str:
     return VERIFY_FOREIGN
 
 
-def verify(challenge_id: str, token: str, site_key: str) -> bool:
+# challenge_id is the value of the frontend `arcaptcha-token` field.
+def verify(challenge_id: str, site_key: str) -> bool:
     url = get_verify_url(challenge_id)
     response = requests.post(
         url,
@@ -105,7 +106,6 @@ def verify(challenge_id: str, token: str, site_key: str) -> bool:
             "secret_key": SECRET_KEY,
             "site_key": site_key,
             "challenge_id": challenge_id,
-            "token": token,
         },
         timeout=10,
     )
@@ -118,7 +118,7 @@ def verify(challenge_id: str, token: str, site_key: str) -> bool:
 ## Your checklist
 
 - [ ] Widget loaded from `https://widget.arcaptcha.net/1/api.js`
-- [ ] Frontend sends `challenge_id` and token to your backend
+- [ ] Frontend sends `arcaptcha-token` to your backend; backend passes it as `challenge_id` to verify
 - [ ] Backend routes verify requests using the table above
 - [ ] If backend is in Iran and `challenge_id` starts with `eu-`, confirm reachability to `https://eu-api.arcaptcha.net`
 - [ ] Secret key kept in environment variables or a secret manager
