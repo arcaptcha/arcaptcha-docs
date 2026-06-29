@@ -38,6 +38,7 @@ Backend libraries help you verify ARCaptcha responses on your server.
 | C#                 | C# library for server-side ARCaptcha verification                 | [Arcaptcha.CSharp](https://github.com/arcaptcha/Arcaptcha.CSharp)      |
 | Elixir             | Elixir library for server-side ARCaptcha verification             | [arcaptcha-elixir](https://github.com/evokelektrique/arcaptcha-elixir) |
 | Laravel            | Laravel package for integrating ARCaptcha in Laravel applications | [arcaptcha-laravel](https://github.com/arcaptcha/arcaptcha-laravel)    |
+| Django (Community) | Community-maintained Django REST Framework package for ARCaptcha verification | [django-arcaptcha](https://github.com/arcaptcha/django-arcaptcha) |
 
 ## CMS & Platforms
 
@@ -53,3 +54,4 @@ Plugins for content management systems and platforms.
 We are grateful to the community members who contribute libraries and plugins that extend ARCaptcha to more platforms.
 
 - **[Parisa](https://parvizi96.ir/en)** — for developing and maintaining the community WordPress plugin for Gravity Forms.
+- **[Rassoul Shahsanaii](https://github.com/rassoulshah)** — for developing and maintaining the community Django REST Framework package.

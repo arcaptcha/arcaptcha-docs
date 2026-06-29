@@ -38,6 +38,7 @@ SDK های بومی موبایل برای برنامه‌های Android.
 | C#           | کتابخانه C# برای تأیید ARCaptcha در سمت سرور            | [Arcaptcha.CSharp](https://github.com/arcaptcha/Arcaptcha.CSharp)      |
 | Elixir       | کتابخانه Elixir برای تأیید ARCaptcha در سمت سرور        | [arcaptcha-elixir](https://github.com/evokelektrique/arcaptcha-elixir) |
 | Laravel      | پکیج Laravel برای ادغام ARCaptcha در برنامه‌های Laravel | [arcaptcha-laravel](https://github.com/arcaptcha/arcaptcha-laravel)    |
+| Django (جامعه) | پکیج Django REST Framework نگهداری شده توسط جامعه برای تأیید ARCaptcha | [django-arcaptcha](https://github.com/arcaptcha/django-arcaptcha) |
 
 ## CMS و پلتفرم‌ها
 
@@ -53,3 +54,4 @@ SDK های بومی موبایل برای برنامه‌های Android.
 از اعضای جامعه‌ای که با توسعه کتابخانه‌ها و پلاگین‌ها، ARCaptcha را به پلتفرم‌های بیشتری گسترش می‌دهند، سپاسگزاریم.
 
 - **[Parisa](https://parvizi96.ir/en)** — بابت توسعه و نگهداری پلاگین WordPress جامعه برای Gravity Forms.
+- **[Rassoul Shahsanaii](https://github.com/rassoulshah)** — بابت توسعه و نگهداری پکیج Django REST Framework جامعه.
