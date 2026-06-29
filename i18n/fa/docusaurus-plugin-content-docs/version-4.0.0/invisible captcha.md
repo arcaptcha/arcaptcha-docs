@@ -21,7 +21,7 @@
 ```html
 <script type="text/javascript">
   function onSubmit(token) {
-    cosnole.log(token); // do something with your arcaptcha-token!
+    console.log(token); // do something with your arcaptcha-token!
     document.getElementById("my-form").submit();
   }
 </script>
