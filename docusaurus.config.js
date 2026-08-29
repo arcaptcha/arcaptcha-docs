@@ -67,7 +67,7 @@ const config = {
             type: "text/javascript",
           },
           innerHTML: `window.GOFTINO_WIDGET_ID=${JSON.stringify(
-            GOFTINO_WIDGET_ID
+            GOFTINO_WIDGET_ID,
           )};`,
         },
       ]
