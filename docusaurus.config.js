@@ -93,16 +93,7 @@ const config = {
           routeBasePath: "/",
           includeCurrentVersion: false,
           versions: {
-            "5.0.0": {
-              banner: "none",
-            },
             "4.0.0": {
-              banner: "none",
-            },
-            "3.0.0": {
-              banner: "none",
-            },
-            "fraud-1.0.0": {
               banner: "none",
             },
           },
@@ -139,9 +130,9 @@ const config = {
         items: [
           {
             type: "doc",
-            docId: "installation",
+            docId: "quick start",
             position: "left",
-            label: "Installation",
+            label: "Quick Start",
           },
           {
             href: "https://github.com/arcaptcha",
@@ -167,10 +158,6 @@ const config = {
               {
                 label: "Installation",
                 to: "/installation",
-              },
-              {
-                label: "ARCaptcha v3",
-                to: "/3.0.0/installation",
               },
             ],
           },

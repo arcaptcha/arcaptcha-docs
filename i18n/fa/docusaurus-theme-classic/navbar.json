@@ -3,9 +3,9 @@
     "message": "آرکپچا",
     "description": "The title in the navbar"
   },
-  "item.label.Installation": {
-    "message": "نصب و راه اندازی",
-    "description": "Navbar item with label Installation"
+  "item.label.Quick Start": {
+    "message": "شروع سریع",
+    "description": "Navbar item with label Quick Start"
   },
   "item.label.GitHub": {
     "message": "گیت هاب",

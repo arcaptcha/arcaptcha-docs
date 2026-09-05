@@ -28,26 +28,26 @@ Native mobile SDKs for Android applications.
 
 Backend libraries help you verify ARCaptcha responses on your server.
 
-| Language/Framework | Description                                                       | Link                                                                   |
-| ------------------ | ----------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| Node.js            | Official Node.js library for server-side ARCaptcha verification   | [arcaptcha-nodejs](https://github.com/arcaptcha/arcaptcha-nodejs)      |
-| PHP                | PHP library for server-side ARCaptcha verification                | [arcaptcha-php](https://github.com/arcaptcha/arcaptcha-php)            |
-| Python             | Python library for server-side ARCaptcha verification             | [arcaptcha-python](https://github.com/arcaptcha/arcaptcha-python) |
-| Ruby               | Ruby library for server-side ARCaptcha verification               | [arcaptcha-ruby](https://github.com/evokelektrique/arcaptcha-ruby)     |
-| Go                 | Go library for server-side ARCaptcha verification                 | [arcaptcha-go](https://github.com/arcaptcha/arcaptcha-go)              |
-| C#                 | C# library for server-side ARCaptcha verification                 | [Arcaptcha.CSharp](https://github.com/arcaptcha/Arcaptcha.CSharp)      |
-| Elixir             | Elixir library for server-side ARCaptcha verification             | [arcaptcha-elixir](https://github.com/evokelektrique/arcaptcha-elixir) |
-| Laravel            | Laravel package for integrating ARCaptcha in Laravel applications | [arcaptcha-laravel](https://github.com/arcaptcha/arcaptcha-laravel)    |
-| Django (Community) | Community-maintained Django REST Framework package for ARCaptcha verification | [django-arcaptcha](https://github.com/arcaptcha/django-arcaptcha) |
+| Language/Framework | Description                                                                   | Link                                                                   |
+| ------------------ | ----------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| Node.js            | Official Node.js library for server-side ARCaptcha verification               | [arcaptcha-nodejs](https://github.com/arcaptcha/arcaptcha-nodejs)      |
+| PHP                | PHP library for server-side ARCaptcha verification                            | [arcaptcha-php](https://github.com/arcaptcha/arcaptcha-php)            |
+| Python             | Python library for server-side ARCaptcha verification                         | [arcaptcha-python](https://github.com/arcaptcha/arcaptcha-python)      |
+| Ruby               | Ruby library for server-side ARCaptcha verification                           | [arcaptcha-ruby](https://github.com/evokelektrique/arcaptcha-ruby)     |
+| Go                 | Go library for server-side ARCaptcha verification                             | [arcaptcha-go](https://github.com/arcaptcha/arcaptcha-go)              |
+| C#                 | C# library for server-side ARCaptcha verification                             | [Arcaptcha.CSharp](https://github.com/arcaptcha/Arcaptcha.CSharp)      |
+| Elixir             | Elixir library for server-side ARCaptcha verification                         | [arcaptcha-elixir](https://github.com/evokelektrique/arcaptcha-elixir) |
+| Laravel            | Laravel package for integrating ARCaptcha in Laravel applications             | [arcaptcha-laravel](https://github.com/arcaptcha/arcaptcha-laravel)    |
+| Django (Community) | Community-maintained Django REST Framework package for ARCaptcha verification | [django-arcaptcha](https://github.com/arcaptcha/django-arcaptcha)      |
 
 ## CMS & Platforms
 
 Plugins for content management systems and platforms.
 
-| Platform                         | Description                                                                 | Link                                                                                                                                                                                                                                      |
-| -------------------------------- | --------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| WordPress                        | WordPress plugin for integrating ARCaptcha in WordPress sites               | [Documentation](https://arcaptcha.co/fa/blog/%D8%A7%D9%81%D8%B2%D9%88%D9%86%D9%87-%D9%88%D8%B1%D8%AF%D9%BE%D8%B1%D8%B3-%DA%A9%D9%BE%DA%86%D8%A7) · [Download (v1.14)](https://s3.thr1.sotoon.ir/citadel/public/arcaptcha.1.14.zip)       |
-| WordPress (Gravity Forms, Community) | Community-maintained WordPress plugin for integrating ARCaptcha with Gravity Forms | [Download](https://s3.thr1.sotoon.ir/citadel/public/gf-arcaptcha-addon.zip)                                                                                                                                                               |
+| Platform                             | Description                                                                        | Link                                                                                                                                                                                                                               |
+| ------------------------------------ | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| WordPress                            | WordPress plugin for integrating ARCaptcha in WordPress sites                      | [Documentation](https://arcaptcha.co/fa/blog/%D8%A7%D9%81%D8%B2%D9%88%D9%86%D9%87-%D9%88%D8%B1%D8%AF%D9%BE%D8%B1%D8%B3-%DA%A9%D9%BE%DA%86%D8%A7) · [Download (v1.14)](https://s3.thr1.sotoon.ir/citadel/public/arcaptcha.1.14.zip) |
+| WordPress (Gravity Forms, Community) | Community-maintained WordPress plugin for integrating ARCaptcha with Gravity Forms | [Download](https://s3.thr1.sotoon.ir/citadel/public/gf-arcaptcha-addon.zip)                                                                                                                                                        |
 
 ## Acknowledgments
 
