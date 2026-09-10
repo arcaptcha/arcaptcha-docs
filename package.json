@@ -36,5 +36,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "docusaurus-prince-pdf": "github:signcl/docusaurus-prince-pdf#v1.2.2"
   }
 }
