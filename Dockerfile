@@ -3,6 +3,10 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm install
 COPY . .
+ARG GOFTINO_WIDGET_ID
+ARG GOFTINO_ENABLED
+ENV GOFTINO_WIDGET_ID=$GOFTINO_WIDGET_ID
+ENV GOFTINO_ENABLED=$GOFTINO_ENABLED
 RUN npm run build
 
 # Deployment step

@@ -1,6 +1,6 @@
-import React from 'react';
-import  { Redirect } from 'react-router-dom';
+import React from "react";
+import { Redirect } from "react-router-dom";
 
 export default function Home() {
-  return <Redirect to='/installation'/>;
+  return <Redirect to="/quick start" />;
 }
