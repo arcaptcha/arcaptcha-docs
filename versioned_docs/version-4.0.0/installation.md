@@ -13,11 +13,11 @@ This section covers installing ARCaptcha on your website: loading the widget scr
 ARCaptcha requires two small pieces of client side code to render a captcha widget on an HTML page. First, you must include the ARCaptcha javascript resource somewhere in your HTML page. The `<script>` must be loaded via HTTPS and can be placed anywhere on the page. Inside the `<head>` tag or immediately after the `.arcaptcha` container are both fine.
 
 ```html
-<script src="https://widget.arcaptcha.ir/1/api.js" async defer></script>
+<script src="https://nwidget.arcaptcha.ir/1/api.js" async defer></script>
 
 <!-- You can set domain manually! (Usecase : When widget is going to be load on Mobile Webviews) -->
 <script
-  src="https://widget.arcaptcha.ir/1/api.js?domain=example.com"
+  src="https://nwidget.arcaptcha.ir/1/api.js?domain=example.com"
   async
   defer
 ></script>
@@ -37,7 +37,7 @@ Here's a full example where ARCaptcha is being used to protect a signup form fro
 <html>
   <head>
     <title>ARCaptcha Demo</title>
-    <script src="https://widget.arcaptcha.ir/1/api.js" async defer></script>
+    <script src="https://nwidget.arcaptcha.ir/1/api.js" async defer></script>
   </head>
   <body>
     <form action="" method="POST">

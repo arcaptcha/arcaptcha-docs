@@ -51,7 +51,7 @@ sidebar_position: 1
 <html>
   <head>
     <title>ARCaptcha Demo</title>
-    <script src="https://widget.arcaptcha.ir/1/api.js" async defer></script>
+    <script src="https://nwidget.arcaptcha.ir/1/api.js" async defer></script>
   </head>
   <body>
     <form method="POST" action="/login">
@@ -84,7 +84,7 @@ sidebar_position: 1
     <meta charset="utf-8" />
     <title>ARCaptcha Execute Example</title>
     <!-- 1. Load ARCaptcha Widget -->
-    <script src="https://widget.arcaptcha.ir/1/api.js" async defer></script>
+    <script src="https://nwidget.arcaptcha.ir/1/api.js" async defer></script>
 
     <script>
       let widgetId = null;

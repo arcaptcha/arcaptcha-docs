@@ -42,7 +42,7 @@
 ```html
 <html>
   <head>
-    <script src="https://widget.arcaptcha.ir/1/api.js" async defer></script>
+    <script src="https://nwidget.arcaptcha.ir/1/api.js" async defer></script>
 
     <script>
       function onSubmit(token) {

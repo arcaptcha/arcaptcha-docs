@@ -13,11 +13,11 @@ sidebar_position: 2
 ARCaptcha برای نمایش ویجت کپچا در یک صفحه HTML به دو قطعه کد کوچک سمت کاربر نیاز دارد. ابتدا باید منبع جاوااسکریپت ARCaptcha را در صفحه HTML خود قرار دهید. تگ `<script>` باید از طریق HTTPS بارگذاری شود و می‌تواند در هر نقطه‌ای از صفحه قرار بگیرد؛ قرار دادن آن داخل تگ `<head>` یا بلافاصله بعد از کانتینر `.arcaptcha` هر دو مناسب هستند.
 
 ```html
-<script src="https://widget.arcaptcha.ir/1/api.js" async defer></script>
+<script src="https://nwidget.arcaptcha.ir/1/api.js" async defer></script>
 
 <!-- می‌توانید دامنه را به‌صورت دستی تنظیم کنید؛ برای WebViewهای موبایل کاربرد دارد -->
 <script
-  src="https://widget.arcaptcha.ir/1/api.js?domain=example.com"
+  src="https://nwidget.arcaptcha.ir/1/api.js?domain=example.com"
   async
   defer
 ></script>
@@ -37,7 +37,7 @@ ARCaptcha برای نمایش ویجت کپچا در یک صفحه HTML به د�
 <html>
   <head>
     <title>نمونه ARCaptcha</title>
-    <script src="https://widget.arcaptcha.ir/1/api.js" async defer></script>
+    <script src="https://nwidget.arcaptcha.ir/1/api.js" async defer></script>
   </head>
   <body>
     <form action="" method="POST">

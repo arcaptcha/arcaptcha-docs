@@ -51,7 +51,7 @@ You embed the ARCaptcha widget on your site—for example, on a login or signup 
 <html>
   <head>
     <title>ARCaptcha Demo</title>
-    <script src="https://widget.arcaptcha.ir/1/api.js" async defer></script>
+    <script src="https://nwidget.arcaptcha.ir/1/api.js" async defer></script>
   </head>
   <body>
     <form method="POST" action="/login">
@@ -83,7 +83,7 @@ You embed the ARCaptcha widget on your site—for example, on a login or signup 
     <meta charset="utf-8" />
     <title>ARCaptcha Execute Example</title>
     <!-- 1. Load ARCaptcha Widget -->
-    <script src="https://widget.arcaptcha.ir/1/api.js" async defer></script>
+    <script src="https://nwidget.arcaptcha.ir/1/api.js" async defer></script>
 
     <script>
       let widgetId = null;
