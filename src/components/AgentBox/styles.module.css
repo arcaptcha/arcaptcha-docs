@@ -67,7 +67,8 @@
 .agentButton {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  justify-content: flex-start;
+  gap: 0.45rem;
   padding: 0.45rem 0.6rem;
   font-size: 0.75rem;
   font-weight: 600;
@@ -80,6 +81,13 @@
   transition: all 0.15s ease-in-out;
   outline: none;
   box-sizing: border-box;
+  text-align: start;
+}
+
+.agentName {
+  direction: ltr;
+  unicode-bidi: isolate;
+  display: inline-block;
 }
 
 .agentButton:hover {
@@ -132,7 +140,7 @@
   border-radius: 4px;
   text-decoration: none !important;
   transition: color 0.15s ease, background 0.15s ease;
-  text-align: left;
+  text-align: start;
 }
 
 .utilityButton:hover:not(:disabled) {

@@ -81,6 +81,13 @@ test("Desktop TOC AgentBox widget renders cleanly in production HTML bundles", (
       /Open Markdown/i,
       `${pagePath} must render Open Markdown button`
     );
+
+    // Locale-specific checks
+    if (pagePath.includes('/fa/')) {
+      assert.match(html, /افزودن به ایجنت/, `${pagePath} must render Persian 'افزودن به ایجنت' title`);
+      assert.match(html, /کپی مارک‌داون/, `${pagePath} must render Persian 'کپی مارک‌داون' button`);
+      assert.match(html, /مشاهده مارک‌داون/, `${pagePath} must render Persian 'مشاهده مارک‌داون' button`);
+    }
   }
 });
 

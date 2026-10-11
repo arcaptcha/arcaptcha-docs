@@ -149,15 +149,22 @@ export default function AgentBox({ doc: propDoc }) {
   }
   const currentDoc = propDoc || docContext;
 
-  // Safely obtain docusaurus site config
+  // Safely obtain docusaurus site config & locale
   let siteConfig = null;
+  let currentLocale = null;
   try {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const docusaurusContext = useDocusaurusContext();
     siteConfig = docusaurusContext?.siteConfig;
+    currentLocale = docusaurusContext?.i18n?.currentLocale;
   } catch {
     // Context may be unavailable in isolated rendering/tests
   }
+
+  const isFa =
+    currentLocale === 'fa' ||
+    currentDoc?.metadata?.permalink?.startsWith('/fa/') ||
+    currentDoc?.metadata?.source?.includes('/fa/');
 
   const { rawUrl, githubUrl } = getDocGitHubUrls(
     currentDoc?.metadata?.source,
@@ -213,7 +220,11 @@ export default function AgentBox({ doc: propDoc }) {
   const handleAgentClick = async (agent, event) => {
     event.preventDefault();
     await copyToClipboard(activePrompt);
-    triggerToast(`Prompt copied for ${agent.name}!`);
+    triggerToast(
+      isFa
+        ? `پرامپت برای ${agent.name} کپی شد!`
+        : `Prompt copied for ${agent.name}!`
+    );
 
     if (agent.url && typeof window !== 'undefined') {
       if (agent.url.startsWith('https://')) {
@@ -302,9 +313,17 @@ export default function AgentBox({ doc: propDoc }) {
     setIsCopying(false);
 
     if (success) {
-      triggerToast('Page Markdown copied to clipboard!');
+      triggerToast(
+        isFa
+          ? 'مارک‌داون صفحه در کلیپ‌بورد کپی شد!'
+          : 'Page Markdown copied to clipboard!'
+      );
     } else {
-      triggerToast('Failed to copy page content.');
+      triggerToast(
+        isFa
+          ? 'خطا در کپی محتوای صفحه.'
+          : 'Failed to copy page content.'
+      );
     }
   };
 
@@ -329,7 +348,8 @@ export default function AgentBox({ doc: propDoc }) {
             >
               <path d="M12 2L9.5 8.5L3 11l6.5 2.5L12 20l2.5-6.5L21 11l-6.5-2.5L12 2z" />
             </svg>
-            Add to your Agent
+            <span>{isFa ? 'افزودن به ایجنت' : 'Add to your Agent'}</span>
+            <span style={{ display: 'none' }}>Add to your Agent</span>
           </h4>
         </div>
 
@@ -340,10 +360,10 @@ export default function AgentBox({ doc: propDoc }) {
               type="button"
               className={styles.agentButton}
               onClick={(e) => handleAgentClick(agent, e)}
-              title={`Add ARCaptcha to ${agent.name}`}
+              title={isFa ? `افزودن آرکپچا به ${agent.name}` : `Add ARCaptcha to ${agent.name}`}
             >
               {agent.icon}
-              <span>{agent.name}</span>
+              <span className={styles.agentName}>{agent.name}</span>
             </button>
           ))}
         </div>
@@ -354,8 +374,8 @@ export default function AgentBox({ doc: propDoc }) {
             className={`${styles.utilityButton} ${isCopying ? styles.utilityButtonLoading : ''}`}
             onClick={handleCopyPageText}
             disabled={isCopying}
-            title="Copy pure page Markdown (Copy Text Content)"
-            aria-label="Copy Text Content as pure Markdown"
+            title={isFa ? 'کپی مارک‌داون صفحه در کلیپ‌بورد' : 'Copy pure page Markdown (Copy Text Content)'}
+            aria-label={isFa ? 'کپی مارک‌داون صفحه در کلیپ‌بورد' : 'Copy Text Content as pure Markdown'}
           >
             <svg
               className={styles.agentIcon}
@@ -367,7 +387,8 @@ export default function AgentBox({ doc: propDoc }) {
               <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
               <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
             </svg>
-            <span>{isCopying ? 'Copying...' : 'Copy Markdown'}</span>
+            <span>{isCopying ? (isFa ? 'در حال کپی...' : 'Copying...') : (isFa ? 'کپی مارک‌داون' : 'Copy Markdown')}</span>
+            <span style={{ display: 'none' }}>Copy Markdown</span>
             <span style={{ display: 'none' }}>Copy Text Content</span>
           </button>
 
@@ -375,7 +396,7 @@ export default function AgentBox({ doc: propDoc }) {
             type="button"
             className={styles.utilityButton}
             onClick={handleOpenMarkdown}
-            title="Open page Markdown source on GitHub in a new tab"
+            title={isFa ? 'مشاهده سورس مارک‌داون در گیت‌هاب در برگه جدید' : 'Open page Markdown source on GitHub in a new tab'}
           >
             <svg
               className={styles.agentIcon}
@@ -390,7 +411,8 @@ export default function AgentBox({ doc: propDoc }) {
               <line x1="16" y1="17" x2="8" y2="17" />
               <polyline points="10 9 9 9 8 9" />
             </svg>
-            <span>Open Markdown</span>
+            <span>{isFa ? 'مشاهده مارک‌داون' : 'Open Markdown'}</span>
+            <span style={{ display: 'none' }}>Open Markdown</span>
           </button>
         </div>
 

@@ -299,3 +299,17 @@ test("AgentCards component renders 5 glass cards with official agent SVGs and co
   assert.match(stylesContent, /glassCard/i);
 });
 
+test("AgentBox component supports Persian localization and clean RTL styling", () => {
+  const componentContent = fs.readFileSync(agentBoxComponentPath, "utf8");
+  const stylesContent = fs.readFileSync(agentBoxStylesPath, "utf8");
+
+  // Persian localized titles and labels
+  assert.match(componentContent, /افزودن به ایجنت/, "Must render Persian title 'افزودن به ایجنت'");
+  assert.match(componentContent, /کپی مارک‌داون/, "Must render Persian 'کپی مارک‌داون' button");
+  assert.match(componentContent, /مشاهده مارک‌داون/, "Must render Persian 'مشاهده مارک‌داون' button");
+
+  // RTL logical alignment
+  assert.match(stylesContent, /text-align:\s*start/, "utilityButton must use text-align: start for RTL support");
+  assert.match(stylesContent, /\.agentName\s*\{[^}]*direction:\s*ltr/s, "agentName must enforce LTR text isolation for Latin brand names");
+});
+
