@@ -1,0 +1,20 @@
+.desktopTOCContainer {
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 1rem);
+  max-height: calc(100vh - (var(--ifm-navbar-height) + 2rem));
+  overflow-y: auto;
+}
+
+/* Ensure the inner DocItemTOCDesktop does not create an independent sticky context or duplicate scroll container */
+.desktopTOCContainer :global(.theme-doc-toc-desktop) {
+  position: static !important;
+  max-height: none !important;
+  overflow-y: visible !important;
+  top: auto !important;
+}
+
+@media (max-width: 996px) {
+  .desktopTOCContainer {
+    display: none !important;
+  }
+}

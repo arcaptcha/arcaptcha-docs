@@ -1,0 +1,206 @@
+.agentBoxContainer {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ifm-toc-border-color, var(--ifm-color-emphasis-200, #e5e7eb));
+  font-family: var(--ifm-font-family-base, inherit);
+}
+
+/* Hide on mobile viewports (desktop only) */
+@media (max-width: 996px) {
+  .agentBoxContainer {
+    display: none !important;
+  }
+}
+
+.agentBoxCard {
+  background: var(--ifm-card-background-color, var(--ifm-background-surface-color, rgba(255, 255, 255, 0.7)));
+  border: 1px solid var(--ifm-color-emphasis-200, rgba(0, 0, 0, 0.08));
+  border-radius: 10px;
+  padding: 0.85rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(8px);
+  transition: all 0.2s ease-in-out;
+}
+
+[data-theme='dark'] .agentBoxCard {
+  background: var(--ifm-card-background-color, rgba(30, 30, 36, 0.6));
+  border-color: var(--ifm-color-emphasis-200, rgba(255, 255, 255, 0.1));
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.agentBoxHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.65rem;
+}
+
+.agentBoxTitle {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ifm-color-emphasis-700, #4b5563);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+[data-theme='dark'] .agentBoxTitle {
+  color: var(--ifm-color-emphasis-500, #9ca3af);
+}
+
+.titleIcon {
+  width: 14px;
+  height: 14px;
+  color: var(--ifm-color-primary, #867ee2);
+}
+
+.agentGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.45rem;
+  margin-bottom: 0.65rem;
+}
+
+.agentButton {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.45rem;
+  padding: 0.45rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ifm-font-color-base, #1f2937);
+  background: var(--ifm-color-emphasis-100, #f3f4f6);
+  border: 1px solid var(--ifm-color-emphasis-200, #e5e7eb);
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none !important;
+  transition: all 0.15s ease-in-out;
+  outline: none;
+  box-sizing: border-box;
+  text-align: start;
+}
+
+.agentName {
+  direction: ltr;
+  unicode-bidi: isolate;
+  display: inline-block;
+}
+
+.agentButton:hover {
+  background: var(--ifm-color-primary-lighter, #ede9fe);
+  border-color: var(--ifm-color-primary, #867ee2);
+  color: var(--ifm-color-primary-darkest, #4338ca);
+  transform: translateY(-1px);
+}
+
+[data-theme='dark'] .agentButton {
+  background: var(--ifm-color-emphasis-200, #27272a);
+  border-color: var(--ifm-color-emphasis-300, #3f3f46);
+  color: var(--ifm-font-color-base, #e4e4e7);
+}
+
+[data-theme='dark'] .agentButton:hover {
+  background: rgba(134, 126, 226, 0.2);
+  border-color: var(--ifm-color-primary, #867ee2);
+  color: #ffffff;
+}
+
+.agentIcon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.utilityActions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  border-top: 1px dashed var(--ifm-color-emphasis-200, rgba(0, 0, 0, 0.08));
+  padding-top: 0.5rem;
+}
+
+[data-theme='dark'] .utilityActions {
+  border-top-color: var(--ifm-color-emphasis-200, rgba(255, 255, 255, 0.1));
+}
+
+.utilityButton {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  color: var(--ifm-color-emphasis-600, #6b7280);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem 0.35rem;
+  border-radius: 4px;
+  text-decoration: none !important;
+  transition: color 0.15s ease, background 0.15s ease;
+  text-align: start;
+}
+
+.utilityButton:hover:not(:disabled) {
+  color: var(--ifm-color-primary, #867ee2);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+[data-theme='dark'] .utilityButton {
+  color: var(--ifm-color-emphasis-500, #9ca3af);
+}
+
+[data-theme='dark'] .utilityButton:hover:not(:disabled) {
+  color: var(--ifm-color-primary-light, #a5b4fc);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.utilityButton:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.utilityButtonLoading {
+  opacity: 0.75;
+}
+
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #065f46;
+  background: #d1fae5;
+  border: 1px solid #a7f3d0;
+  border-radius: 6px;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+[data-theme='dark'] .toast {
+  color: #a7f3d0;
+  background: rgba(6, 95, 70, 0.35);
+  border-color: rgba(5, 150, 105, 0.4);
+}
+
+.toastIcon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

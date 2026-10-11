@@ -1,0 +1,392 @@
+# ARCaptcha Consolidated Documentation Context
+
+> This document contains the consolidated, complete technical documentation for ARCaptcha. It is optimized for ingestion by Large Language Models and AI coding assistants in a single request.
+
+---
+
+## 1. Overview & Security Architecture
+
+ARCaptcha protects web and mobile applications against bots, automated scraping, credential stuffing, SMS fraud, and spam.
+
+### Security Principles: Site Key vs. Secret Key
+Every ARCaptcha integration relies on two distinct cryptographic keys obtained from the ARCaptcha dashboard (https://dashboard.arcaptcha.co):
+
+1. **Site Key (`site_key`)**:
+   - **Environment**: Client-side (Public).
+   - **Usage**: Configured in HTML markup (`data-site-key="YOUR_SITE_KEY"`) or passed as a parameter in JavaScript `arcaptcha.render()` / SDK components.
+   - **Security**: Publicly accessible in frontend code; identifies your site to ARCaptcha's widget service.
+
+2. **Secret Key (`secret_key`)**:
+   - **Environment**: Server-side (Private).
+   - **Usage**: Used exclusively by your backend server to authenticate token verification requests to `https://api.arcaptcha.co/arcaptcha/api/verify`.
+   - **Security Rule**: NEVER expose the Secret Key in client-side code, mobile application bundles, repository commits, or public scripts. Always store it in server environment variables (e.g., `ARCAPTCHA_SECRET_KEY`).
+
+---
+
+## 2. Integration Flow
+
+1. **Frontend Script Load**: The browser loads the ARCaptcha JavaScript SDK (`https://nwidget.arcaptcha.ir/1/api.js`).
+2. **Widget Render**: The widget renders inside a container element with class `arcaptcha` and `data-site-key`.
+3. **Challenge Completion**: The user completes the CAPTCHA challenge (interactive or invisible).
+4. **Token Generation**: Upon successful challenge resolution, ARCaptcha injects a hidden form input with name `arcaptcha-token` containing the challenge token string.
+5. **Form Submission**: The user submits the form. The client sends `arcaptcha-token` along with form data to the customer backend server.
+6. **Server Verification**: The customer backend sends a POST request to `https://api.arcaptcha.co/arcaptcha/api/verify` with `site_key`, `secret_key`, and `challenge_id` (the token).
+7. **Decision**: The backend inspects the verification response `success` field (`true` or `false`) and allows or blocks the user action accordingly.
+
+---
+
+## 3. Client-Side Integration
+
+### Standard HTML Form Integration
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ARCaptcha Protected Form</title>
+    <!-- Load ARCaptcha API Script -->
+    <script src="https://nwidget.arcaptcha.ir/1/api.js" async defer></script>
+  </head>
+  <body>
+    <form action="/login" method="POST">
+      <input type="text" name="username" placeholder="Username" required />
+      <input type="password" name="password" placeholder="Password" required />
+
+      <!-- ARCaptcha Widget Container -->
+      <div class="arcaptcha" data-site-key="YOUR_SITE_KEY"></div>
+
+      <!-- The hidden input `arcaptcha-token` is automatically inserted after solve -->
+      <button type="submit">Log In</button>
+    </form>
+  </body>
+</html>
+```
+
+### Mobile WebView Domain Setting
+When embedding the widget within mobile WebViews, pass the domain parameter in the script tag:
+```html
+<script src="https://nwidget.arcaptcha.ir/1/api.js?domain=example.com" async defer></script>
+```
+
+---
+
+## 4. Configuration & JavaScript API
+
+### Container Attributes & Render Parameters
+
+| Attribute | Render Option | Type / Values | Default | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| `data-site-key` | `site_key` | string | (Required) | Public site key. |
+| `data-size` | `size` | `'normal'` \| `'invisible'` | `'normal'` | Size of the widget. |
+| `data-theme` | `theme` | `'light'` \| `'dark'` | `'light'` | Color theme. |
+| `data-color` | `color` | CSS color name or hex | - | Theme accent color. |
+| `data-error-print` | `error_print` | `'0'` \| `'1'` | `'0'` | Enable (`0`) or disable (`1`) error messages below widget. |
+| `data-lang` | `lang` | `'en'` \| `'fa'` | `'fa'` | Widget language. |
+| `data-callback` | `callback` | function / string | - | Triggered upon successful solve. Passes `token`. |
+| `data-rendered-callback` | `rendered_callback` | function / string | - | Triggered after widget rendering finishes. |
+| `data-error-callback` | `error_callback` | function / string | - | Triggered upon error during challenge. |
+| `data-reset-callback` | `reset_callback` | function / string | - | Triggered when widget is reset. |
+| `data-expired-callback` | `expired_callback` | function / string | - | Triggered when challenge solution expires. |
+| `data-chlexpired-callback` | `chlexpired_callback` | function / string | - | Triggered when open challenge expires. |
+| `data-blocked-callback` | `blocked_callback` | function / string | - | Triggered when client is detected as bot. |
+| `data-clicked-callback` | `clicked_callback` | function / string | - | Triggered when checkbox clicked or `execute` invoked. |
+| `data-opened-callback` | `opened_callback` | function / string | - | Triggered when challenge modal opens. |
+| `data-closed-callback` | `closed_callback` | function / string | - | Triggered when challenge modal closes. |
+
+### Global JavaScript Methods (`window.arcaptcha`)
+
+1. `arcaptcha.render(container, params)`:
+   - Explicitly renders the widget inside `container` (DOM selector string or HTMLElement).
+   - `params`: Object with configuration properties (`site_key`, `size`, `callback`, etc.).
+   - Returns: Unique `widgetID`.
+
+2. `arcaptcha.execute(widgetID)`:
+   - Programmatically triggers the ARCaptcha challenge.
+   - Typically used in invisible mode.
+   - Returns a Promise resolving to `{ arcaptcha_token }` or rejecting on failure.
+
+3. `arcaptcha.reset(widgetID)`:
+   - Resets the specified widget (or default widget if omitted) so a new challenge can be solved.
+
+4. `arcaptcha.getArcToken(widgetID)`:
+   - Returns the current challenge token string for the specified widget.
+
+---
+
+## 5. Invisible Captcha
+
+Invisible CAPTCHA operates without rendering a visible checkbox widget. The user interaction only presents a visual challenge when risk assessment requires human verification.
+
+### Option A: Automatic Button Binding
+Bind the challenge directly to a submit button:
+```html
+<form id="login-form" action="/login" method="POST">
+  <input type="text" name="username" required />
+  <button
+    class="arcaptcha"
+    data-site-key="YOUR_SITE_KEY"
+    data-callback="onSubmit"
+  >
+    Submit
+  </button>
+</form>
+
+<script>
+  function onSubmit(token) {
+    // Hidden token input is already populated or token passed here
+    document.getElementById("login-form").submit();
+  }
+</script>
+```
+
+### Option B: Programmatic Invisible Execution
+```html
+<script src="https://nwidget.arcaptcha.ir/1/api.js" async defer></script>
+<script>
+  let widgetId = null;
+
+  function initCaptcha() {
+    widgetId = arcaptcha.render("#captcha-box", {
+      site_key: "YOUR_SITE_KEY",
+      size: "invisible",
+      callback: (token) => {
+        document.getElementById("demo-form").submit();
+      }
+    });
+  }
+
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    if (widgetId !== null) {
+      arcaptcha.execute(widgetId);
+    }
+  }
+
+  window.onload = initCaptcha;
+</script>
+
+<form id="demo-form" action="/submit" method="POST">
+  <input type="text" name="name" required />
+  <div id="captcha-box"></div>
+  <button onclick="handleFormSubmit(event)">Submit</button>
+</form>
+```
+
+---
+
+## 6. Server-Side Verification API
+
+### Endpoint Specification
+- **URL**: `https://api.arcaptcha.co/arcaptcha/api/verify`
+- **Method**: `POST`
+- **Headers**: `Content-Type: application/json`
+
+### Request Payload
+```json
+{
+  "site_key": "YOUR_PUBLIC_SITE_KEY",
+  "secret_key": "YOUR_PRIVATE_SECRET_KEY",
+  "challenge_id": "TOKEN_FROM_ARCAPTCHA_TOKEN_POST_DATA"
+}
+```
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| `site_key` | string | Yes | The site key associated with your domain. |
+| `secret_key` | string | Yes | Your private account secret key. |
+| `challenge_id` | string | Yes | The value of `arcaptcha-token` received from the client submission. |
+
+### Response Schema
+```json
+{
+  "success": true,
+  "error-codes": []
+}
+```
+
+### Error Codes Reference
+- `missing-input-sitekey`: The `site_key` parameter is missing.
+- `missing-input-secret`: The `secret_key` parameter is missing.
+- `missing-input-response`: The `challenge_id` parameter is missing.
+- `bad-request`: Malformed or invalid request body.
+- `invalid-input-sitekey`: The `site_key` parameter is invalid or malformed.
+- `invalid-input-secret`: The `secret_key` parameter is invalid or malformed.
+- `invalid-input-response`: The `challenge_id` is invalid, expired, or malformed.
+- `timeout-or-duplicate`: The challenge has expired or has already been verified.
+
+---
+
+## 7. SDKs & Libraries Catalog
+
+### Frontend Frameworks
+- **React**: [arcaptcha-react](https://github.com/arcaptcha/Arcaptcha-React-js) (`npm i arcaptcha-react`)
+- **Vue 2**: [arcaptcha-vue](https://github.com/arcaptcha/arcaptcha-vue)
+- **Vue 3**: [arcaptcha-vue3](https://github.com/arcaptcha/arcaptcha-vue3)
+- **Angular**: [arcaptcha-angular](https://github.com/arcaptcha/arcaptcha-angular)
+- **Flutter**: [arcaptcha-flutter](https://github.com/arcaptcha/arcaptcha-flutter) / [ar_captcha](https://github.com/fateme-shm/ar_captcha)
+
+### Backend SDKs
+- **Node.js**: [arcaptcha-nodejs](https://github.com/arcaptcha/arcaptcha-nodejs)
+- **Python**: [arcaptcha-python](https://github.com/arcaptcha/arcaptcha-python)
+- **Django**: [django-arcaptcha](https://github.com/arcaptcha/django-arcaptcha)
+- **PHP**: [arcaptcha-php](https://github.com/arcaptcha/arcaptcha-php)
+- **Laravel**: [arcaptcha-laravel](https://github.com/arcaptcha/arcaptcha-laravel)
+- **Go**: [arcaptcha-go](https://github.com/arcaptcha/arcaptcha-go)
+- **C# / .NET**: [Arcaptcha.CSharp](https://github.com/arcaptcha/Arcaptcha.CSharp)
+- **Ruby**: [arcaptcha-ruby](https://github.com/evokelektrique/arcaptcha-ruby)
+- **Elixir**: [arcaptcha-elixir](https://github.com/evokelektrique/arcaptcha-elixir)
+
+### Mobile Native
+- **Android Native**: [arcaptcha-native-android-sdk](https://github.com/arcaptcha/arcaptcha-native-android-sdk)
+- **Android WebView**: [arcaptcha_android_sdk](https://github.com/arcaptcha/arcaptcha_android_sdk)
+
+### CMS Integrations
+- **WordPress**: [Download Plugin](https://s3.thr1.sotoon.ir/citadel/public/arcaptcha.1.14.zip)
+- **WordPress Gravity Forms**: [Download Addon](https://s3.thr1.sotoon.ir/citadel/public/gf-arcaptcha-addon.zip)
+
+---
+
+## 8. Server Verification Code Implementations
+
+### Node.js / TypeScript Example
+```typescript
+import axios from "axios";
+
+interface VerifyResponse {
+  success: boolean;
+  "error-codes"?: string[];
+}
+
+export async function verifyArcaptcha(token: string): Promise<boolean> {
+  const url = "https://api.arcaptcha.co/arcaptcha/api/verify";
+  const siteKey = process.env.ARCAPTCHA_SITE_KEY!;
+  const secretKey = process.env.ARCAPTCHA_SECRET_KEY!;
+
+  try {
+    const response = await axios.post<VerifyResponse>(
+      url,
+      {
+        site_key: siteKey,
+        secret_key: secretKey,
+        challenge_id: token,
+      },
+      {
+        headers: { "Content-Type": "application/json" },
+        timeout: 5000,
+      }
+    );
+    return Boolean(response.data?.success);
+  } catch (error) {
+    console.error("ARCaptcha verification network error:", error);
+    return false;
+  }
+}
+```
+
+### Python Example
+```python
+import os
+import requests
+
+def verify_arcaptcha(token: str) -> bool:
+    url = "https://api.arcaptcha.co/arcaptcha/api/verify"
+    payload = {
+        "site_key": os.environ["ARCAPTCHA_SITE_KEY"],
+        "secret_key": os.environ["ARCAPTCHA_SECRET_KEY"],
+        "challenge_id": token,
+    }
+    try:
+        res = requests.post(
+            url,
+            json=payload,
+            headers={"Content-Type": "application/json"},
+            timeout=5,
+        )
+        data = res.json()
+        return bool(data.get("success", False))
+    except Exception as exc:
+        print(f"ARCaptcha verification failed: {exc}")
+        return False
+```
+
+### Go Example
+```go
+package main
+
+import (
+	"bytes"
+	"encoding/json"
+	"net/http"
+	"os"
+	"time"
+)
+
+type VerifyRequest struct {
+	SiteKey     string `json:"site_key"`
+	SecretKey   string `json:"secret_key"`
+	ChallengeID string `json:"challenge_id"`
+}
+
+type VerifyResponse struct {
+	Success    bool     `json:"success"`
+	ErrorCodes []string `json:"error-codes,omitempty"`
+}
+
+func VerifyArcaptcha(token string) (bool, error) {
+	client := &http.Client{Timeout: 5 * time.Second}
+	reqBody, err := json.Marshal(VerifyRequest{
+		SiteKey:     os.Getenv("ARCAPTCHA_SITE_KEY"),
+		SecretKey:   os.Getenv("ARCAPTCHA_SECRET_KEY"),
+		ChallengeID: token,
+	})
+	if err != nil {
+		return false, err
+	}
+
+	resp, err := client.Post(
+		"https://api.arcaptcha.co/arcaptcha/api/verify",
+		"application/json",
+		bytes.NewBuffer(reqBody),
+	)
+	if err != nil {
+		return false, err
+	}
+	defer resp.Body.Close()
+
+	var result VerifyResponse
+	if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
+		return false, err
+	}
+	return result.Success, nil
+}
+```
+
+### cURL Example
+```bash
+curl -X POST https://api.arcaptcha.co/arcaptcha/api/verify \
+  -H "Content-Type: application/json" \
+  -d '{
+    "site_key": "YOUR_SITE_KEY",
+    "secret_key": "YOUR_SECRET_KEY",
+    "challenge_id": "TOKEN_FROM_FORM"
+  }'
+```
+
+## 9. AI Agent Integration & Onboarding
+
+### 1-Click Prompt
+```text
+Please read https://docs.arcaptcha.co/onboard.md and help me integrate ARCaptcha into this project.
+```
+
+### Supported AI Assistants
+- **Claude Code**: Terminal invocation (`claude "..."`) and deep link `claude-cli://open?q=...`.
+- **Cursor**: Composer / Chat prompt injection and deep link `https://cursor.com/link/prompt?text=...`.
+- **ChatGPT**: Web & desktop session and deep link `https://chatgpt.com/?q=...`.
+- **OpenCode**: CLI prompt input, automated clipboard copying, and deep link `opencode://open?prompt=...`.
+
+### Security Principles
+- Never expose `secret_key` in client-side code, git repositories, or frontend bundles.
+- Keep `secret_key` in server environment variables (e.g. `ARCAPTCHA_SECRET_KEY`).
+- Provide only `site_key` for client-side HTML containers and widgets.
+
