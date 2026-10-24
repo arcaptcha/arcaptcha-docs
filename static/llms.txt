@@ -1,0 +1,28 @@
+# ARCaptcha Documentation Index
+
+> Machine-readable index of ARCaptcha documentation, guides, and integration specifications for AI assistants and LLMs.
+
+ARCaptcha is a modern, privacy-respecting CAPTCHA service designed to protect web and mobile applications against bots, credential stuffing, spam, and automated abuse.
+
+## Core Documentation
+
+- [Quick Start](https://docs.arcaptcha.co/quick%20start): Overview, credentials acquisition, rapid frontend and backend setup, and 1-click AI agent integration prompts.
+- [Installation](https://docs.arcaptcha.co/installation): Step-by-step guide on adding the widget script, inserting the `.arcaptcha` container, and token verification.
+- [Configuration](https://docs.arcaptcha.co/configuration): Complete reference for widget container attributes, programmatic `arcaptcha.render()`, `arcaptcha.execute()`, and lifecycle event callbacks.
+- [Invisible Captcha](https://docs.arcaptcha.co/invisible%20captcha): Guide for automatic button binding and programmatic invisible challenge execution without visible checkboxes.
+- [Plugins and Libraries](https://docs.arcaptcha.co/plugins): Official and community SDKs for React, Vue, Angular, Flutter, Node.js, Python, PHP, Go, C#, Ruby, Elixir, and CMSs (WordPress).
+- [Verify API](https://docs.arcaptcha.co/API/Verify): Server-side REST API verification endpoint specification, parameter schema, response contract, and error code definitions.
+- [Agent Skills & AI Integration](https://docs.arcaptcha.co/agent): Guide on using modern AI coding assistants (Claude Code, Cursor, ChatGPT, OpenCode) with ARCaptcha and 1-click prompts.
+
+## Machine-Readable Specifications for AI Agents
+
+- [Agent Onboard Specification](https://docs.arcaptcha.co/onboard.md): Complete, self-contained implementation specification and security guidelines for AI coding agents.
+- [Full Documentation Context](https://docs.arcaptcha.co/llms-full.txt): Consolidated, complete technical documentation in a single high-density text file.
+
+## Key Technical Constants
+
+- **Widget Script**: `https://nwidget.arcaptcha.ir/1/api.js`
+- **Verification Endpoint**: `https://api.arcaptcha.co/arcaptcha/api/verify` (HTTP POST, `Content-Type: application/json`)
+- **Frontend Form Field**: `arcaptcha-token`
+- **Dashboard URL**: `https://dashboard.arcaptcha.co`
+- **Standard Agent Prompt**: `Please read https://docs.arcaptcha.co/onboard.md and help me integrate ARCaptcha into this project.`
