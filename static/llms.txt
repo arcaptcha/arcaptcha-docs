@@ -8,6 +8,7 @@ ARCaptcha is a modern, privacy-respecting CAPTCHA service designed to protect we
 
 - [Quick Start](https://docs.arcaptcha.co/quick%20start): Overview, credentials acquisition, rapid frontend and backend setup, and 1-click AI agent integration prompts.
 - [Installation](https://docs.arcaptcha.co/installation): Step-by-step guide on adding the widget script, inserting the `.arcaptcha` container, and token verification.
+- [Bypass Mode and Disaster Recovery](https://docs.arcaptcha.co/bypass-mode): Periodic heartbeat caching, server-decided widget loading, outage policy, and recovery testing; includes the [Node.js sample project](https://github.com/arcaptcha/arcaptcha-bypass-mode-demo).
 - [Configuration](https://docs.arcaptcha.co/configuration): Complete reference for widget container attributes, programmatic `arcaptcha.render()`, `arcaptcha.execute()`, and lifecycle event callbacks.
 - [Invisible Captcha](https://docs.arcaptcha.co/invisible%20captcha): Guide for automatic button binding and programmatic invisible challenge execution without visible checkboxes.
 - [Plugins and Libraries](https://docs.arcaptcha.co/plugins): Official and community SDKs for React, Vue, Angular, Flutter, Node.js, Python, PHP, Go, C#, Ruby, Elixir, and CMSs (WordPress).
@@ -21,7 +22,9 @@ ARCaptcha is a modern, privacy-respecting CAPTCHA service designed to protect we
 
 ## Key Technical Constants
 
-- **Widget Script**: `https://nwidget.arcaptcha.ir/1/api.js`
+- **Widget Script (standard)**: `https://nwidget.arcaptcha.ir/1/api.js`
+- **Optional Multi-domain Loader**: `https://widget.arcaptcha.ir/init.js` (tries `.ir`, `.co`, and `.net` API domains; no local captcha or failover token)
+- **Heartbeat Endpoint**: `GET https://api.arcaptcha.ir/arcaptcha/api/heartbeat` (load the widget only when HTTP succeeds and JSON `OK` is `true`)
 - **Verification Endpoint**: `https://api.arcaptcha.co/arcaptcha/api/verify` (HTTP POST, `Content-Type: application/json`)
 - **Frontend Form Field**: `arcaptcha-token`
 - **Dashboard URL**: `https://dashboard.arcaptcha.co`

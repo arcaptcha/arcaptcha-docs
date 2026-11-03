@@ -27,11 +27,25 @@ To protect a form against automated bots, perform two steps: inject the widget s
 ### Step 2.1: Script Injection
 Include the ARCaptcha script via HTTPS on pages containing protected forms. Place it in `<head>` or before the closing `</body>`:
 
+The static script tag below is the standard integration without heartbeat gating. When implementing Bypass Mode, do not place the widget script in static HTML: first call the heartbeat endpoint and insert the script only when its response is healthy.
+
 ```html
 <script src="https://nwidget.arcaptcha.ir/1/api.js" async defer></script>
 ```
 
 *(Optional: For mobile WebViews, domain override can be appended: `<script src="https://nwidget.arcaptcha.ir/1/api.js?domain=example.com" async defer></script>`)*
+
+### Optional: Multi-domain loader (`init.js`)
+
+The direct `api.js` script above remains the standard integration. As an alternative, use this loader to try the v4 widget API on `widget.arcaptcha.ir`, then `.co`, then `.net`:
+
+```html
+<script src="https://widget.arcaptcha.ir/init.js" async defer></script>
+```
+
+Do not include both `api.js` and `init.js` on the same page. The loader only tries the remote API script; if all domains fail, it does not render a local captcha or generate a failover token. For WebViews, see the Installation guide's `data-api-url` and `data-backup-urls` example to preserve a domain override across all three hosts.
+
+The application should poll `GET https://api.arcaptcha.ir/arcaptcha/api/heartbeat` and keep the latest result in server-owned state. For server-rendered pages, include the widget script only when that cached state is healthy. For client-rendered pages, have the browser ask your backend for a `loadWidget` decision; the browser should not call the provider or interpret raw heartbeat data. If the server denies loading, do not create a local token. The backend uses the same server-owned status and applies an explicit fail-open/fail-closed policy. A failed heartbeat is not a successful CAPTCHA, and an invalid token must never become a fail-open pass. See the [ARCaptcha Bypass Mode guide](https://docs.arcaptcha.co/bypass-mode) and the [Node.js sample project](https://github.com/arcaptcha/arcaptcha-bypass-mode-demo); the demo simulates heartbeat failure and uses fail-open only for local demonstration. Use shared storage for the heartbeat status in multi-instance production and fail-closed as the safer policy default.
 
 ### Step 2.2: Container Placement
 Place the `.arcaptcha` container inside your HTML `<form>`:

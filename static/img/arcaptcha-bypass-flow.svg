@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 500" role="img" aria-labelledby="title desc">
+  <title id="title">ARCaptcha server-owned heartbeat and widget-load decision</title>
+  <desc id="desc">The server polls and caches the ARCaptcha heartbeat. For server-rendered apps it includes or omits the widget in HTML. For client-rendered apps it returns loadWidget true or false, and the browser follows that response. The server later verifies tokens or applies its outage policy.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#101d31"/><stop offset="1" stop-color="#0b1424"/></linearGradient>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 8 4 0 8z" fill="#8297b3"/></marker>
+    <style>
+      .box{fill:#17263b;stroke:#344a67;stroke-width:1.3}.teal{fill:#15343c;stroke:#419d9b;stroke-width:1.3}.green{fill:#153329;stroke:#4ca77f;stroke-width:1.3}.amber{fill:#33291f;stroke:#ba8051;stroke-width:1.3}.purple{fill:#20213b;stroke:#8b7ee0;stroke-width:1.3}.title{font:700 13px Arial,sans-serif;fill:#f2f6fc}.body{font:10px Arial,sans-serif;fill:#aabbd0}.small{font:8px monospace;fill:#91a4bf;letter-spacing:.4px}.line{fill:none;stroke:#8297b3;stroke-width:1.5;marker-end:url(#arrow)}.cached{fill:none;stroke:#a897ff;stroke-width:1.4;stroke-dasharray:4 4;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="980" height="500" rx="14" fill="url(#bg)"/>
+
+  <text x="30" y="31" class="small" fill="#b7a9ff">1 · BACKGROUND SERVER MONITOR</text>
+  <rect x="30" y="47" width="200" height="65" rx="10" class="box"/>
+  <text x="47" y="73" class="title">Server poller</text>
+  <text x="47" y="93" class="body">Checks on a timer</text>
+  <path d="M230 79H278" class="line"/>
+  <rect x="286" y="47" width="230" height="65" rx="10" class="box"/>
+  <text x="304" y="73" class="title">ARCaptcha heartbeat</text>
+  <text x="304" y="93" class="body">GET · expect HTTP 200 + OK true</text>
+  <path d="M516 79H564" class="line"/>
+  <rect x="572" y="47" width="365" height="65" rx="10" class="purple"/>
+  <text x="590" y="73" class="title">Cached server status</text>
+  <text x="590" y="93" class="body">Healthy or unavailable · share storage across instances</text>
+
+  <text x="30" y="150" class="small" fill="#72ddd1">2 · SERVER DECIDES WHETHER THE WIDGET MAY LOAD</text>
+  <path d="M755 112V166H305V184" class="cached"/>
+  <text x="604" y="160" class="small" fill="#b7a9ff">SAME CACHED STATUS</text>
+
+  <rect x="30" y="190" width="280" height="94" rx="11" class="teal"/>
+  <text x="49" y="216" class="small" fill="#78dfd4">SERVER-RENDERED (SSR)</text>
+  <text x="49" y="240" class="title">Server renders the page</text>
+  <text x="49" y="261" class="body">Healthy → include widget · Failed → omit it</text>
+
+  <rect x="30" y="313" width="280" height="94" rx="11" class="teal"/>
+  <text x="49" y="339" class="small" fill="#78dfd4">CLIENT-RENDERED (CSR)</text>
+  <text x="49" y="363" class="title">Backend returns loadWidget</text>
+  <text x="49" y="384" class="body">true or false from cached server status</text>
+
+  <path d="M310 237H354" class="line"/>
+  <rect x="362" y="190" width="245" height="94" rx="11" class="green"/>
+  <text x="381" y="216" class="small" fill="#82e8b6">SSR OUTPUT</text>
+  <text x="381" y="240" class="title">Widget included or omitted</text>
+  <text x="381" y="261" class="body">Decision was made on the server</text>
+
+  <path d="M310 360H354" class="line"/>
+  <rect x="362" y="313" width="245" height="94" rx="11" class="green"/>
+  <text x="381" y="339" class="small" fill="#82e8b6">CSR RESPONSE</text>
+  <text x="381" y="363" class="title">Browser follows loadWidget</text>
+  <text x="381" y="384" class="body">true → insert · false → skip</text>
+
+  <path d="M607 237H652V298H681" class="line"/>
+  <path d="M607 360H652V298H681" class="line"/>
+  <rect x="689" y="244" width="248" height="108" rx="11" class="purple"/>
+  <text x="708" y="271" class="small" fill="#b7a9ff">3 · PROTECTED ACTION</text>
+  <text x="708" y="295" class="title">Backend uses same status</text>
+  <text x="708" y="316" class="body">Healthy → verify token</text>
+  <text x="708" y="335" class="body">Failed → apply outage policy</text>
+
+  <text x="30" y="461" class="small">THE CLIENT NEVER DECIDES OR CLAIMS THAT HEARTBEAT OR CAPTCHA SUCCEEDED</text>
+</svg>

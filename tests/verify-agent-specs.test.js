@@ -7,6 +7,37 @@ const repoRoot = path.resolve(__dirname, "..");
 const staticDir = path.join(repoRoot, "static");
 const buildDir = path.join(repoRoot, "build");
 
+test("v4 Installation documents init.js as an optional loader", () => {
+  const installationPath = path.join(repoRoot, "versioned_docs", "version-4.0.0", "installation.md");
+  const content = fs.readFileSync(installationPath, "utf8");
+
+  assert.match(content, /Optional: Use the multi-domain `init\.js` loader/);
+  assert.match(content, /https:\/\/nwidget\.arcaptcha\.ir\/1\/api\.js/, "direct api.js remains the standard example");
+  assert.match(content, /https:\/\/widget\.arcaptcha\.ir\/init\.js/, "init.js is documented as an alternative");
+  assert.match(content, /data-backup-urls=.*widget\.arcaptcha\.co.*widget\.arcaptcha\.net/);
+});
+
+test("v4 Bypass Mode guide explains outage policy and includes its flow diagram", () => {
+  const guidePath = path.join(repoRoot, "versioned_docs", "version-4.0.0", "bypass-mode.md");
+  const content = fs.readFileSync(guidePath, "utf8");
+  const faGuidePath = path.join(repoRoot, "i18n", "fa", "docusaurus-plugin-content-docs", "version-4.0.0", "bypass-mode.md");
+  const faContent = fs.readFileSync(faGuidePath, "utf8");
+
+  assert.match(content, /https:\/\/api\.arcaptcha\.ir\/arcaptcha\/api\/heartbeat/);
+  assert.match(content, /OK.*true/);
+  assert.match(content, /fail-closed/i);
+  assert.match(content, /fail-open/i);
+  assert.match(content, /success: false/);
+  assert.match(content, /https:\/\/github\.com\/arcaptcha\/arcaptcha-bypass-mode-demo/);
+  assert.doesNotMatch(content, /geetest/i);
+  assert.doesNotMatch(content, /```(?:js|javascript)/i);
+  assert.match(faContent, /https:\/\/github\.com\/arcaptcha\/arcaptcha-bypass-mode-demo/);
+  assert.doesNotMatch(faContent, /geetest/i);
+  assert.doesNotMatch(faContent, /```(?:js|javascript)/i);
+  assert.match(content, /\/img\/arcaptcha-bypass-flow\.svg/);
+  assert.ok(fs.existsSync(path.join(staticDir, "img", "arcaptcha-bypass-flow.svg")));
+});
+
 test("static/onboard.md satisfies agent skill format and technical requirements", () => {
   const onboardPath = path.join(staticDir, "onboard.md");
   assert.ok(fs.existsSync(onboardPath), "static/onboard.md must exist");
@@ -19,6 +50,9 @@ test("static/onboard.md satisfies agent skill format and technical requirements"
     /https:\/\/nwidget\.arcaptcha\.ir\/1\/api\.js/,
     "onboard.md must include widget script URL"
   );
+  assert.match(content, /https:\/\/docs\.arcaptcha\.co\/bypass-mode/, "onboard.md must link to outage guidance");
+  assert.match(content, /https:\/\/github\.com\/arcaptcha\/arcaptcha-bypass-mode-demo/, "onboard.md must link to sample project");
+  assert.match(content, /https:\/\/api\.arcaptcha\.ir\/arcaptcha\/api\/heartbeat/, "onboard.md must include heartbeat URL");
 
   // Container placement
   assert.match(
@@ -85,6 +119,7 @@ test("static/llms.txt provides structured index of ARCaptcha documentation", () 
   assert.match(content, /configuration/i, "llms.txt must index configuration");
   assert.match(content, /plugins/i, "llms.txt must index plugins");
   assert.match(content, /verify/i, "llms.txt must index verify API");
+  assert.match(content, /https:\/\/api\.arcaptcha\.ir\/arcaptcha\/api\/heartbeat/, "llms.txt must index the heartbeat endpoint");
 });
 
 test("static/llms-full.txt provides consolidated documentation context", () => {

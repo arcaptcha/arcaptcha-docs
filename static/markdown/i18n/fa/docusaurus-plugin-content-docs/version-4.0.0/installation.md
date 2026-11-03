@@ -47,6 +47,27 @@ ARCaptcha برای نمایش ویجت کپچا در یک صفحه HTML به د�
 </html>
 ```
 
+## اختیاری: استفاده از لودر چنددامنه‌ای `init.js`
+
+در روش استاندارد بالا، فایل `api.js` مستقیماً بارگذاری می‌شود. اگر می‌خواهید مرورگر دامنه‌های ویجت یعنی `.ir`، `.co` و `.net` را به‌ترتیب امتحان کند، به‌جای آن از `init.js` استفاده کنید. هر دو اسکریپت را هم‌زمان در یک صفحه قرار ندهید.
+
+```html
+<script src="https://widget.arcaptcha.ir/init.js" async defer></script>
+```
+
+این لودر ابتدا `https://widget.arcaptcha.ir/1/api.js` و سپس نسخه‌های `.co` و `.net` را امتحان می‌کند. مهلت هر تلاش به‌صورت پیش‌فرض ۸ ثانیه است. اگر هر سه دامنه ناموفق باشند، تلاش متوقف می‌شود؛ کپچای محلی نمایش داده نمی‌شود و failover token تولید نمی‌شود.
+
+برای WebViewهای موبایل که به تنظیم دستی دامنه نیاز دارند، مقدار دامنه را برای هر URL مربوط به API تنظیم کنید:
+
+```html
+<script
+  src="https://widget.arcaptcha.ir/init.js"
+  data-api-url="https://widget.arcaptcha.ir/1/api.js?domain=example.com"
+  data-backup-urls="https://widget.arcaptcha.co/1/api.js?domain=example.com,https://widget.arcaptcha.net/1/api.js?domain=example.com"
+  async defer
+></script>
+```
+
 ## ۲. تأیید پاسخ کاربر در سمت سرور
 
 با افزودن کد سمت کاربر، ویجت ARCaptcha را نمایش دادید تا مشخص شود کاربران افراد واقعی هستند یا ربات‌های خودکار. پس از حل موفق کپچا، اسکریپت ARCaptcha یک token منحصربه‌فرد در داده‌های فرم قرار می‌دهد.

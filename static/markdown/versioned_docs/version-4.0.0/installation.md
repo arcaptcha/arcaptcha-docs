@@ -47,6 +47,27 @@ Here's a full example where ARCaptcha is being used to protect a signup form fro
 </html>
 ```
 
+## Optional: Use the multi-domain `init.js` loader
+
+The standard integration above loads `api.js` directly. If you want the browser to try the widget's `.ir`, `.co`, and `.net` domains in sequence, use `init.js` instead. Do not include both scripts on the same page.
+
+```html
+<script src="https://widget.arcaptcha.ir/init.js" async defer></script>
+```
+
+The loader tries `https://widget.arcaptcha.ir/1/api.js`, then the `.co` and `.net` equivalents. Each attempt has an 8-second timeout by default. If all three fail, it stops; it does not render a local captcha or generate a failover token.
+
+For mobile WebViews that require a domain override, pass the override to each API URL:
+
+```html
+<script
+  src="https://widget.arcaptcha.ir/init.js"
+  data-api-url="https://widget.arcaptcha.ir/1/api.js?domain=example.com"
+  data-backup-urls="https://widget.arcaptcha.co/1/api.js?domain=example.com,https://widget.arcaptcha.net/1/api.js?domain=example.com"
+  async defer
+></script>
+```
+
 ## 2. Verify the User Response Server Side
 
 By adding the client side code, you were able to render an ARCaptcha widget that identified if users were real people or automated bots. When the captcha succeeded, the ARCaptcha script inserted a unique token into your form data.

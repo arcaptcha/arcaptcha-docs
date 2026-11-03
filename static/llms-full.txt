@@ -68,6 +68,22 @@ When embedding the widget within mobile WebViews, pass the domain parameter in t
 <script src="https://nwidget.arcaptcha.ir/1/api.js?domain=example.com" async defer></script>
 ```
 
+### Bypass Mode and Disaster Recovery
+The server periodically calls `GET https://api.arcaptcha.ir/arcaptcha/api/heartbeat` and caches the latest result. In a server-rendered app, include the widget script only when the cached result is healthy. In a client-rendered app, the server returns a `loadWidget` instruction and the browser follows it; the browser must not interpret raw heartbeat data as authorization. If loading is denied, skip the widget and do not create a token. The backend uses the same cached result before token verification or outage fallback. In multi-instance deployments, store heartbeat status in shared storage. A verification response with `success: false` is an invalid token and must be rejected. For heartbeat failure, timeouts, network errors, and temporary provider failures, applications may apply an explicit server-side policy:
+- **Fail-closed (recommended default):** reject or defer the protected action when verification is unavailable.
+- **Fail-open (opt-in):** allow the action without a verified token; scope this carefully, log decisions without tokens/secrets, rate-limit, and alert.
+
+Do not trust a client “heartbeat failed” or “passed” flag or mint a local ARCaptcha token. The [Node.js sample project](https://github.com/arcaptcha/arcaptcha-bypass-mode-demo) periodically caches heartbeat status, simulates heartbeat failure, and uses fail-open only for local demonstration; fail-closed is the safer production default. See [Bypass Mode and Disaster Recovery](https://docs.arcaptcha.co/bypass-mode) for the guide and request-flow diagram.
+
+### Optional: Multi-domain Loader (`init.js`)
+The standard integration above loads `api.js` directly. As an alternative, use `init.js` to try the v4 widget API on `widget.arcaptcha.ir`, then `.co`, then `.net`. Do not include both scripts on the same page.
+
+```html
+<script src="https://widget.arcaptcha.ir/init.js" async defer></script>
+```
+
+Each domain attempt has an 8-second timeout by default. If all attempts fail, the loader stops; it does not render a local captcha or issue a failover token. For WebViews, configure `data-api-url` and `data-backup-urls` on the loader script so the `domain` override is retained on each API URL.
+
 ---
 
 ## 4. Configuration & JavaScript API
@@ -389,4 +405,3 @@ Please read https://docs.arcaptcha.co/onboard.md and help me integrate ARCaptcha
 - Never expose `secret_key` in client-side code, git repositories, or frontend bundles.
 - Keep `secret_key` in server environment variables (e.g. `ARCAPTCHA_SECRET_KEY`).
 - Provide only `site_key` for client-side HTML containers and widgets.
-
