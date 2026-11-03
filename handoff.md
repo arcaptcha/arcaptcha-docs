@@ -51,7 +51,7 @@ When resuming work, follow these steps:
    - Follow standard `SKILL.md` format with frontmatter (`name: arcaptcha-docs`, description, URL).
    - Full instructions for agents: site key setup, frontend widget, backend verification, official SDKs list, fallback curl/REST spec.
 2. **`static/llms.txt` & `static/llms-full.txt`**:
-   - Index of all documentation pages in Arcaptcha-docs (`quick start`, `installation`, `API`, `configuration`, `plugins`, `invisible captcha`, `agent`).
+   - Index of all documentation pages in Arcaptcha-docs (`quick start`, `installation`, `API`, `configuration`, `plugins`, `invisible widget`, `agent`).
 
 ### Step 2: Update `AGENTS.md`
 - Add the rule agreed upon in Round 4:

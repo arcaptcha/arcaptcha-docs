@@ -1,83 +1,75 @@
-# Invisible Captcha
+# Invisible Widget
 
-You can get all the bot-blocking benefits of ARCaptcha without explicitly rendering our checkbox widget. ARCaptcha client/server interactions occur in the background, and the user will only be presented with a ARCaptcha challenge if try to click on submit button.
+An **Invisible Widget** removes the visible “I'm not a robot” checkbox. It does not remove ARCaptcha's bot-detection process or mean that every request is automatically trusted.
 
-## Automatically bind the challenge to a button
+When the user clicks a bound button—or your code calls `arcaptcha.execute()`—ARCaptcha starts bot detection:
 
-The easiest way to do this is to assign an `.arcaptcha` class to any button or input. Like before, you must add your site key in a `data-site-key` attribute assigned to the `<button>` element. Additionally, all of the data-\* attributes are applicable here.
+- If ARCaptcha decides no human challenge is needed, verification completes without interrupting the user. Your callback receives the token.
+- If ARCaptcha decides an extra human check is needed, it opens the challenge as a pop-up. After the user completes it, your callback receives the token.
 
-```html
-<button
-  class="arcaptcha"
-  data-site-key="your_site_key"
-  data-callback="onSubmit"
+The caller handles the token the same way in either case: submit it to your backend and verify it with the [ARCaptcha Verify API](./API/Verify.md).
+
+> **Info: Not a score-only CAPTCHA mode**
 >
-  Submit
-</button>
-```
+> Invisible Widget is not a reCAPTCHA v3-style score integration. Your application does not receive a risk score to interpret. ARCaptcha runs its detection flow and either completes without showing a challenge or asks the user to solve a pop-up challenge.
 
-Just as before, the `arcaptcha-token` will be sent to the callback function upon successful completion of the ARCaptcha challenge. If you attached the invisible ARCaptcha to a submit button, you must specify a data-callback to handle form submission. In most cases, you will want to use the callback to manually submit the form.
+## Bind an Invisible Widget to a button
+
+Add the `.arcaptcha` class and your public site key to a button. Set `data-size="invisible"` to hide the checkbox UI:
 
 ```html
-<script type="text/javascript">
-  function onSubmit(token) {
-    console.log(token); // do something with your arcaptcha-token!
-    document.getElementById("my-form").submit();
+<form id="signup-form" action="/signup" method="POST">
+  <input name="email" type="email" required />
+  <button
+    class="arcaptcha"
+    data-site-key="YOUR_SITE_KEY"
+    data-size="invisible"
+    data-callback="onVerified"
+  >
+    Continue
+  </button>
+</form>
+
+<script>
+  function onVerified(token) {
+    // The widget has completed, with or without showing a challenge.
+    document.getElementById("signup-form").submit();
   }
 </script>
 ```
 
-## Programmatically bind the challenge to a button or invoke the challenge
+The widget starts its detection flow when the button is clicked. If no challenge is needed, the user sees no CAPTCHA step. If a challenge is needed, the pop-up appears before `onVerified` runs.
 
-This works without change from the explicit rendering of the [ARCaptcha widget described here](/configuration#explicitly-render-arcaptcha). The only difference is that if the `data-size="invisible"` is present, the widget will be rendered in the background and only presented when a challenge is required.
+## Trigger detection programmatically
 
-## Programmatically invoke the challenge
-
-If you would prefer to invoke the ARCaptcha workflow via a JavaScript trigger (in cases like a checkbox click, or a page load), you'll need to use the `arcaptcha.execute(widgetID)` function to trigger that process on a given `widgetID`.
-
-For more information on the `arcaptcha.execute` function and the `widgetID` argument, you can read more on the [JavaScript API section of the configuration page](/configuration#arcaptchaexecutewidgetid)
-
-#### Example
+Use `size: "invisible"` when rendering a widget in a container, then call `arcaptcha.execute(widgetID)` at the action you want to protect:
 
 ```html
-<html>
-  <head>
-    <script src="https://nwidget.arcaptcha.ir/1/api.js" async defer></script>
+<div id="captcha-container"></div>
+<button id="continue-button">Continue</button>
 
-    <script>
-      function onSubmit(token) {
-        alert("thanks " + document.getElementById("field").value);
-      }
+<script>
+  const widgetID = arcaptcha.render("#captcha-container", {
+    site_key: "YOUR_SITE_KEY",
+    size: "invisible",
+    callback: onVerified,
+  });
 
-      function validate(event) {
-        event.preventDefault();
-        if (!document.getElementById("field").value) {
-          alert("You must add text to the required field");
-        } else {
-          arcaptcha.execute();
-        }
-      }
+  document.getElementById("continue-button").addEventListener("click", (event) => {
+    event.preventDefault();
+    arcaptcha.execute(widgetID);
+  });
 
-      function onload() {
-        var element = document.getElementById("submit");
-        element.onclick = validate;
-      }
-    </script>
-  </head>
-  <body>
-    <form>
-      Name: (required) <input id="field" name="field" />
-      <div
-        class="arcaptcha"
-        data-site-key="your_site_key"
-        data-callback="onSubmit"
-        data-size="invisible"
-      ></div>
-      <button id="submit">submit</button>
-    </form>
-    <script>
-      onload();
-    </script>
-  </body>
-</html>
+  function onVerified(token) {
+    // Send token to your server, then submit the protected action.
+  }
+</script>
 ```
+
+Calling `execute()` starts detection; it does not guarantee that a visible challenge will appear. The user may see no interruption or may be asked to solve the pop-up challenge.
+
+## Server verification is still required
+
+After the callback receives `arcaptcha-token`, send it to your backend. The backend must call the Verify API with your site key, secret key, and token as `challenge_id`. Never treat the client callback alone as authorization, and never expose the secret key in browser code.
+
+See [Configuration](./configuration.md) for the JavaScript API and widget attributes, and [Installation](./installation.md) for the standard script and backend verification setup.

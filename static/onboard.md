@@ -64,8 +64,8 @@ Place the `.arcaptcha` container inside your HTML `<form>`:
 
 When solved, ARCaptcha automatically injects a hidden form input named `arcaptcha-token` containing the challenge token string. When the user submits the form, `arcaptcha-token` is sent along with other form fields to your server.
 
-### Step 2.3: Programmatic & Invisible Mode
-If preferred, you can trigger ARCaptcha programmatically or invisibly:
+### Step 2.3: Programmatic & Invisible Widget
+The Invisible Widget removes the checkbox, not bot detection. Calling `arcaptcha.execute()` starts detection: ARCaptcha may complete without interrupting the user or show a pop-up challenge. It is not a score-only integration. See the [Invisible Widget guide](https://docs.arcaptcha.co/invisible%20captcha).
 
 ```javascript
 // Render invisibly

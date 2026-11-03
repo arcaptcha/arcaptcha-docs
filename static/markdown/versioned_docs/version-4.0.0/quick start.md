@@ -81,7 +81,7 @@ You embed the ARCaptcha widget on your site—for example, on a login or signup 
     <script>
       let widgetId = null;
 
-      // 2. Render invisible ARCaptcha widget programmatically
+      // 2. Render an Invisible Widget programmatically
       function initARCaptcha() {
         widgetId = arcaptcha.render("#arcaptcha-container", {
           site_key: "YOUR_SITE_KEY",

@@ -7,7 +7,7 @@ The only way to configure ARCaptcha is to set custom attributes on the ARCaptcha
 | Attribute                | Render option       | Value                    | Description                                                                                                           |
 | ------------------------ | ------------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------- |
 | data-site-key            | site_key            | `<your site key>`        | Required. Your public API site key.                                                                                   |
-| data-size                | size                | `normal` \| `inivisible` | Optional. Set the size of the widget. Defaults to `normal`.                                                           |
+| data-size                | size                | `normal` \| `invisible` | Optional. Set the size of the widget. Defaults to `normal`; `invisible` selects Invisible Widget without a checkbox. |
 | data-theme               | theme               | `light` \| `dark`        | Optional. Set the theme of widget. Defualts to `light`                                                                |
 | data-color               | color               | color name or hex code   | Optional. Set color of every colored element in widget.                                                               |
 | data-error-print         | error_print         | `0` \| `1`               | Optional. Disable or enable error messages at the bottom of checkbox. Defaults to `0`(enabled)                        |
@@ -34,6 +34,8 @@ Besides the required `data-site-key`, you can add as many or as few configuratio
 ```
 
 All of the above attributes can also be used as param arguments when explicitly rendering with `arcaptcha.render()` (described in the next section). In that case, the param name is as shown above, but without the data prefix. For example, the param argument for `data-site-key` is just `site_key`
+
+With `size: "invisible"`, the widget has no checkbox. Calling `arcaptcha.execute()` starts bot detection; ARCaptcha either completes without interrupting the user or opens a pop-up challenge if one is required. No risk score is returned for the application to interpret.
 
 ```html
 <script type="text/javascript">
@@ -76,7 +78,7 @@ Gets the challenge ID for the ARCaptcha widget with widgetID.
 
 ### arcaptcha.execute(widgetID)
 
-Triggers the ARCaptcha workflow programmatically. Generally used in invisible mode where the target container is a div rather than a button. Returns a promise that will be resolved after user solved the challenge and will be rejected after any error occuration or false solvation.
+Starts the ARCaptcha bot-detection workflow programmatically. Commonly used with an Invisible Widget or bound to a user action. ARCaptcha may complete without showing a challenge or open a pop-up challenge when needed. The promise resolves after verification succeeds and rejects on errors or an unsuccessful challenge.
 
 - `widgetID` Optional unique ID for a widget. Defaults to first widget created.
 

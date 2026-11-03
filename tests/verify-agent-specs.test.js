@@ -38,6 +38,24 @@ test("v4 Bypass Mode guide explains outage policy and includes its flow diagram"
   assert.ok(fs.existsSync(path.join(staticDir, "img", "arcaptcha-bypass-flow.svg")));
 });
 
+test("v4 Invisible Widget explains silent completion and conditional challenges", () => {
+  const pagePath = path.join(repoRoot, "versioned_docs", "version-4.0.0", "invisible captcha.md");
+  const content = fs.readFileSync(pagePath, "utf8");
+  const faPagePath = path.join(repoRoot, "i18n", "fa", "docusaurus-plugin-content-docs", "version-4.0.0", "invisible captcha.md");
+  const faContent = fs.readFileSync(faPagePath, "utf8");
+  const llmsIndex = fs.readFileSync(path.join(staticDir, "llms.txt"), "utf8");
+  const llmsFull = fs.readFileSync(path.join(staticDir, "llms-full.txt"), "utf8");
+
+  assert.match(content, /^# Invisible Widget/m);
+  assert.match(content, /arcaptcha\.execute/);
+  assert.match(content, /without interrupting|no interruption/i);
+  assert.match(content, /pop-up challenge/i);
+  assert.match(content, /not a reCAPTCHA v3-style score/i);
+  assert.match(faContent, /^# ویجت نامرئی/m);
+  assert.match(llmsIndex, /\[Invisible Widget\]/);
+  assert.match(llmsFull, /## 5\. Invisible Widget/);
+});
+
 test("static/onboard.md satisfies agent skill format and technical requirements", () => {
   const onboardPath = path.join(staticDir, "onboard.md");
   assert.ok(fs.existsSync(onboardPath), "static/onboard.md must exist");

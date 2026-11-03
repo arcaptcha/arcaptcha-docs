@@ -1,83 +1,75 @@
-# کپچا مخفی
+# ویجت نامرئی
 
-می‌توانید از قابلیت جلوگیری و دفع بات‌های مخرب توسط آرکپچا، بدون نمایش ویجت «من ربات نیستم» استفاده کنید! تعاملات کلاینت/سرور آرکپچا در پس‌زمینه رخ می‌دهد و تنها در صورتی که روی دکمه ارسال (یا هر Action دیگر) کلیک شود، چالش آرکپچا به کاربر نمایش داده می‌شود.
+**ویجت نامرئی** کادر قابل‌مشاهده «من ربات نیستم» را حذف می‌کند؛ اما فرایند تشخیص بات در ARCaptcha همچنان اجرا می‌شود و به معنی اعتماد خودکار به همه درخواست‌ها نیست.
 
-## چالش را به صورت خودکار به یک دکمه متصل کنید
+با کلیک کاربر روی دکمه متصل‌شده یا فراخوانی `arcaptcha.execute()` از کد شما، تشخیص بات شروع می‌شود:
 
-ساده ترین راه برای انجام این کار، اختصاص یک کلاس `arcaptcha.` به هر دکمه یا فیلد ورود (input) است. مانند قبل، باید کلید سایت خود را در ویژگی `data-site-key` که به عنصر `<button>` اختصاص داده شده است، اضافه کنید. علاوه بر این، تمام ویژگی های \*-data (برای تغییر قالب، رنگ و زبان) در اینجا قابل اجرا هستند.
+- اگر ARCaptcha تشخیص دهد که نیازی به چالش انسانی نیست، بررسی بدون وقفه برای کاربر کامل می‌شود و callback توکن را دریافت می‌کند.
+- اگر ARCaptcha به بررسی انسانی بیشتری نیاز داشته باشد، چالش را به‌شکل پنجره بازشو نمایش می‌دهد. پس از حل چالش، callback توکن را دریافت می‌کند.
 
-```html
-<button
-  class="arcaptcha"
-  data-site-key="your_site_key"
-  data-callback="onSubmit"
+در هر دو حالت، توکن را به backend بفرستید و با [Verify API آرکپچا](./API/Verify.md) بررسی کنید.
+
+> **Info: این حالت کپچای امتیازمحور نیست**
 >
-  Submit
-</button>
-```
+> ویجت نامرئی مانند اتصال امتیازمحور reCAPTCHA v3 نیست. برنامه شما risk score دریافت نمی‌کند تا آن را تفسیر کند. ARCaptcha فرایند تشخیص را اجرا می‌کند و یا بدون نمایش چالش آن را کامل می‌کند، یا از کاربر می‌خواهد چالش بازشو را حل کند.
 
-دقیقاً مانند قبل، `arcaptcha-token` پس از تکمیل موفقیت آمیز چالش آرکپچا به تابع callback ارسال می شود. اگر آرکپچا مخفی را به یک دکمه ارسال متصل کنید، باید یک data-callback را برای رسیدگی به ارسال فرم مشخص کنید. در بیشتر موارد، شما می خواهید از callback برای ارسال دستی فرم استفاده کنید.
+## اتصال ویجت نامرئی به دکمه
+
+کلاس `.arcaptcha` و site key عمومی خود را به دکمه اضافه کنید. ویژگی `data-size="invisible"` رابط checkbox را پنهان می‌کند:
 
 ```html
-<script type="text/javascript">
-  function onSubmit(token) {
-    console.log(token); // do something with your arcaptcha-token!
-    document.getElementById("my-form").submit();
+<form id="signup-form" action="/signup" method="POST">
+  <input name="email" type="email" required />
+  <button
+    class="arcaptcha"
+    data-site-key="YOUR_SITE_KEY"
+    data-size="invisible"
+    data-callback="onVerified"
+  >
+    Continue
+  </button>
+</form>
+
+<script>
+  function onVerified(token) {
+    // ویجت بررسی را کامل کرده است؛ چه چالشی نمایش داده شده باشد و چه نه.
+    document.getElementById("signup-form").submit();
   }
 </script>
 ```
 
-## چالش را با کدنویسی به یک دکمه متصل کنید یا چالش را فراخوانی کنید
+با کلیک روی دکمه، ویجت فرایند تشخیص را آغاز می‌کند. اگر چالشی لازم نباشد، کاربر مرحله‌ای از کپچا نمی‌بیند. اگر لازم باشد، پنجره چالش پیش از اجرای `onVerified` باز می‌شود.
 
-این بدون تغییر رندر صریح [ویجت آرکپچا در اینجا توضیح داده شده است ](/configuration#explicitly-render-arcaptcha)کار می کند.تنها تفاوت این است که اگر `data-size="invisible"` موجود باشد، ویجت در پس‌زمینه نمایش داده می‌شود و تنها زمانی ارائه می‌شود که چالش مورد نیاز باشد.
+## شروع تشخیص با کدنویسی
 
-## با کدنویسی چالش را فراخوانی کنید
-
-اگر ترجیح می‌دهید روند کار آرکپچا را از طریق یک تریگر (trigger) جاوا اسکریپت فراخوانی کنید (در مواردی مانند کلیک باکس یا بارگذاری صفحه)، باید از تابع `arcaptcha.execute(widgetID)` برای راه‌اندازی آن فرآیند روی یک `widgetID` استفاده کنید.
-
-برای اطلاعات بیشتر در مورد تابع `arcaptcha.execute` و آرگومان `widgetID`، می توانید به [بخش API جاوا اسکریپت در صفحه پیکربندی](/configuration#arcaptchaexecutewidgetid) مراجعه کنید.
-
-#### مثال
+ویجت را داخل یک container با `size: "invisible"` رندر کنید و `arcaptcha.execute(widgetID)` را هنگام انجام عملی که می‌خواهید محافظت شود فراخوانی کنید:
 
 ```html
-<html>
-  <head>
-    <script src="https://nwidget.arcaptcha.ir/1/api.js" async defer></script>
+<div id="captcha-container"></div>
+<button id="continue-button">Continue</button>
 
-    <script>
-      function onSubmit(token) {
-        alert("thanks " + document.getElementById("field").value);
-      }
+<script>
+  const widgetID = arcaptcha.render("#captcha-container", {
+    site_key: "YOUR_SITE_KEY",
+    size: "invisible",
+    callback: onVerified,
+  });
 
-      function validate(event) {
-        event.preventDefault();
-        if (!document.getElementById("field").value) {
-          alert("You must add text to the required field");
-        } else {
-          arcaptcha.execute();
-        }
-      }
+  document.getElementById("continue-button").addEventListener("click", (event) => {
+    event.preventDefault();
+    arcaptcha.execute(widgetID);
+  });
 
-      function onload() {
-        var element = document.getElementById("submit");
-        element.onclick = validate;
-      }
-    </script>
-  </head>
-  <body>
-    <form>
-      Name: (required) <input id="field" name="field" />
-      <div
-        class="arcaptcha"
-        data-site-key="your_site_key"
-        data-callback="onSubmit"
-        data-size="invisible"
-      ></div>
-      <button id="submit">submit</button>
-    </form>
-    <script>
-      onload();
-    </script>
-  </body>
-</html>
+  function onVerified(token) {
+    // توکن را به سرور بفرستید و سپس عملیات محافظت‌شده را ادامه دهید.
+  }
+</script>
 ```
+
+فراخوانی `execute()` فرایند تشخیص را آغاز می‌کند؛ نمایش چالش را تضمین نمی‌کند. ممکن است کاربر هیچ وقفه‌ای نبیند یا لازم باشد چالش بازشو را حل کند.
+
+## تأیید سمت سرور همچنان ضروری است
+
+پس از دریافت `arcaptcha-token` در callback، آن را به backend ارسال کنید. backend باید Verify API را با site key، secret key و token در پارامتر `challenge_id` فراخوانی کند. callback سمت کلاینت به‌تنهایی مجوز انجام عملیات نیست و secret key نباید در کد مرورگر قرار بگیرد.
+
+برای API جاوااسکریپت و ویژگی‌های ویجت به [پیکربندی](./configuration.md) و برای بارگذاری اسکریپت و تأیید backend به [نصب و راه‌اندازی](./installation.md) مراجعه کنید.

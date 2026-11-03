@@ -91,7 +91,7 @@ test("Desktop TOC AgentBox widget renders cleanly in production HTML bundles", (
   }
 });
 
-test("Persian configuration anchor matches invisible captcha link target", () => {
+test("Persian configuration anchor matches the explicit-render link target", () => {
   const faConfigDoc = path.join(
     repoRoot,
     "i18n/fa/docusaurus-plugin-content-docs/version-4.0.0/configuration.md"

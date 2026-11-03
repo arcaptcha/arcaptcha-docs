@@ -84,7 +84,7 @@
     <script>
       let widgetId = null;
 
-      // 2. Render invisible ARCaptcha widget programmatically
+      // 2. Render an Invisible Widget programmatically
       function initARCaptcha() {
         widgetId = arcaptcha.render("#arcaptcha-container", {
           site_key: "YOUR_SITE_KEY",

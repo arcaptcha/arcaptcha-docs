@@ -118,7 +118,7 @@ Each domain attempt has an 8-second timeout by default. If all attempts fail, th
 
 2. `arcaptcha.execute(widgetID)`:
    - Programmatically triggers the ARCaptcha challenge.
-   - Typically used in invisible mode.
+   - Typically used with an Invisible Widget: it starts bot detection and may complete silently or show a pop-up challenge.
    - Returns a Promise resolving to `{ arcaptcha_token }` or rejecting on failure.
 
 3. `arcaptcha.reset(widgetID)`:
@@ -129,9 +129,9 @@ Each domain attempt has an 8-second timeout by default. If all attempts fail, th
 
 ---
 
-## 5. Invisible Captcha
+## 5. Invisible Widget
 
-Invisible CAPTCHA operates without rendering a visible checkbox widget. The user interaction only presents a visual challenge when risk assessment requires human verification.
+Invisible Widget removes the “I'm not a robot” checkbox. Calling `arcaptcha.execute()` starts ARCaptcha bot detection: if no human challenge is needed, the callback receives a token without interrupting the user; if an extra check is needed, a pop-up challenge appears first. This is not a reCAPTCHA v3-style score flow; the application does not receive a risk score to interpret.
 
 ### Option A: Automatic Button Binding
 Bind the challenge directly to a submit button:
@@ -141,6 +141,7 @@ Bind the challenge directly to a submit button:
   <button
     class="arcaptcha"
     data-site-key="YOUR_SITE_KEY"
+    data-size="invisible"
     data-callback="onSubmit"
   >
     Submit
@@ -155,7 +156,7 @@ Bind the challenge directly to a submit button:
 </script>
 ```
 
-### Option B: Programmatic Invisible Execution
+### Option B: Programmatic Invisible Widget Execution
 ```html
 <script src="https://nwidget.arcaptcha.ir/1/api.js" async defer></script>
 <script>
