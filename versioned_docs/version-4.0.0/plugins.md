@@ -17,12 +17,13 @@ Frontend libraries help you integrate ARCaptcha widgets into your web applicatio
 
 ## Mobile SDKs
 
-Native mobile SDKs for Android applications.
+Native mobile SDKs for Android and iOS applications.
 
 | SDK               | Description                                                                      | Link                                                                                      |
 | ----------------- | -------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | Android (Native)  | Native Android SDK for ARCaptcha with support for Question and Puzzle challenges | [arcaptcha-native-android-sdk](https://github.com/arcaptcha/arcaptcha-native-android-sdk) |
 | Android (WebView) | Android SDK using WebView for rendering ARCaptcha widgets                        | [arcaptcha_android_sdk](https://github.com/arcaptcha/arcaptcha_android_sdk)               |
+| iOS (Native)     | Native iOS SDK for ARCaptcha                                                      | [ARCaptcha](https://github.com/IbrahimHosseini/ARCaptcha)                                  |
 
 ## Backend Libraries
 
@@ -55,3 +56,4 @@ We are grateful to the community members who contribute libraries and plugins th
 
 - **[Parisa](https://parvizi96.ir/en)** — for developing and maintaining the community WordPress plugin for Gravity Forms.
 - **[Rassoul Shahsanaii](https://github.com/rassoulshah)** — for developing and maintaining the community Django REST Framework package.
+- **[Ibrahim Hosseini](https://github.com/IbrahimHosseini)** — for developing the native iOS SDK for ARCaptcha.

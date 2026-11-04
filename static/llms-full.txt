@@ -256,6 +256,10 @@ Bind the challenge directly to a submit button:
 ### Mobile Native
 - **Android Native**: [arcaptcha-native-android-sdk](https://github.com/arcaptcha/arcaptcha-native-android-sdk)
 - **Android WebView**: [arcaptcha_android_sdk](https://github.com/arcaptcha/arcaptcha_android_sdk)
+- **iOS Native**: [ARCaptcha](https://github.com/IbrahimHosseini/ARCaptcha)
+
+### Acknowledgments
+- **[Ibrahim Hosseini](https://github.com/IbrahimHosseini)** — for developing the native iOS SDK for ARCaptcha.
 
 ### CMS Integrations
 - **WordPress**: [Download Plugin](https://s3.thr1.sotoon.ir/citadel/public/arcaptcha.1.14.zip)
