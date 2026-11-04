@@ -144,6 +144,10 @@ Prefer official or community libraries matching your technology stack:
 ### Mobile
 - **Android Native**: [arcaptcha-native-android-sdk](https://github.com/arcaptcha/arcaptcha-native-android-sdk)
 - **Android WebView**: [arcaptcha_android_sdk](https://github.com/arcaptcha/arcaptcha_android_sdk)
+- **iOS Native**: [ARCaptcha](https://github.com/IbrahimHosseini/ARCaptcha)
+
+### Acknowledgments
+- **[Ibrahim Hosseini](https://github.com/IbrahimHosseini)** — for developing the native iOS SDK for ARCaptcha.
 
 ---
 
