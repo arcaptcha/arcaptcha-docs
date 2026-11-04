@@ -23,7 +23,7 @@ Native mobile SDKs for Android and iOS applications.
 | ----------------- | -------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | Android (Native)  | Native Android SDK for ARCaptcha with support for Question and Puzzle challenges | [arcaptcha-native-android-sdk](https://github.com/arcaptcha/arcaptcha-native-android-sdk) |
 | Android (WebView) | Android SDK using WebView for rendering ARCaptcha widgets                        | [arcaptcha_android_sdk](https://github.com/arcaptcha/arcaptcha_android_sdk)               |
-| iOS (Native)     | Native iOS SDK for ARCaptcha with support for Question and Puzzle challenges      | [ARCaptcha](https://github.com/IbrahimHosseini/ARCaptcha)                                  |
+| iOS (Community)  | Community-maintained, unofficial native iOS SDK for ARCaptcha with support for Question and Puzzle challenges | [ARCaptcha](https://github.com/IbrahimHosseini/ARCaptcha) |
 
 ## Backend Libraries
 
