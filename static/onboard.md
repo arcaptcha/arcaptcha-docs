@@ -252,3 +252,10 @@ Developers invoking AI assistants (Claude Code, Cursor, ChatGPT, OpenCode) shoul
 ```text
 Please read https://docs.arcaptcha.co/onboard.md and help me integrate ARCaptcha into this project.
 ```
+
+---
+
+## 8. WordPress Plugin Downloads
+
+- **WordPress v2.0.0**: [Download Plugin](https://arcaptcha-public.s3.ir-central1.arvanstorage.ir/arcaptcha.2.0.0.zip)
+- **WordPress Gravity Forms**: [Download Addon](https://arcaptcha-public.s3.ir-central1.arvanstorage.ir/gf-arcaptcha-addon.zip)

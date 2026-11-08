@@ -11,7 +11,7 @@ ARCaptcha is a modern, privacy-respecting CAPTCHA service designed to protect we
 - [Bypass Mode and Disaster Recovery](https://docs.arcaptcha.co/bypass-mode): Periodic heartbeat caching, server-decided widget loading, outage policy, and recovery testing; includes the [Node.js sample project](https://github.com/arcaptcha/arcaptcha-bypass-mode-demo).
 - [Configuration](https://docs.arcaptcha.co/configuration): Complete reference for widget container attributes, programmatic `arcaptcha.render()`, `arcaptcha.execute()`, and lifecycle event callbacks.
 - [Invisible Widget](https://docs.arcaptcha.co/invisible%20captcha): Checkbox-free ARCaptcha widget; `execute()` starts bot detection and may complete silently or show a pop-up challenge.
-- [Plugins and Libraries](https://docs.arcaptcha.co/plugins): Official and community SDKs for React, Vue, Angular, Flutter, native Android and iOS, Node.js, Python, PHP, Go, C#, Ruby, Elixir, and CMSs (WordPress).
+- [Plugins and Libraries](https://docs.arcaptcha.co/plugins): Official and community SDKs for React, Vue, Angular, Flutter, native Android and iOS, Node.js, Python, PHP, Go, C#, Ruby, Elixir, and CMSs (WordPress). Downloads: [WordPress v2.0.0](https://arcaptcha-public.s3.ir-central1.arvanstorage.ir/arcaptcha.2.0.0.zip) and [Gravity Forms addon](https://arcaptcha-public.s3.ir-central1.arvanstorage.ir/gf-arcaptcha-addon.zip).
 - [Verify API](https://docs.arcaptcha.co/API/Verify): Server-side REST API verification endpoint specification, parameter schema, response contract, and error code definitions.
 - [Agent Skills & AI Integration](https://docs.arcaptcha.co/agent): Guide on using modern AI coding assistants (Claude Code, Cursor, ChatGPT, OpenCode) with ARCaptcha and 1-click prompts.
 

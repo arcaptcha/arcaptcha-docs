@@ -17,12 +17,13 @@ Frontend libraries help you integrate ARCaptcha widgets into your web applicatio
 
 ## Mobile SDKs
 
-Native mobile SDKs for Android applications.
+Native mobile SDKs for Android and iOS applications.
 
 | SDK               | Description                                                                      | Link                                                                                      |
 | ----------------- | -------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | Android (Native)  | Native Android SDK for ARCaptcha with support for Question and Puzzle challenges | [arcaptcha-native-android-sdk](https://github.com/arcaptcha/arcaptcha-native-android-sdk) |
 | Android (WebView) | Android SDK using WebView for rendering ARCaptcha widgets                        | [arcaptcha_android_sdk](https://github.com/arcaptcha/arcaptcha_android_sdk)               |
+| iOS (Community)  | Community-maintained, unofficial native iOS SDK for ARCaptcha with support for Question and Puzzle challenges | [ARCaptcha](https://github.com/IbrahimHosseini/ARCaptcha) |
 
 ## Backend Libraries
 
@@ -46,8 +47,8 @@ Plugins for content management systems and platforms.
 
 | Platform                             | Description                                                                        | Link                                                                                                                                                                                                                               |
 | ------------------------------------ | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| WordPress                            | WordPress plugin for integrating ARCaptcha in WordPress sites                      | [Documentation](https://arcaptcha.co/fa/blog/%D8%A7%D9%81%D8%B2%D9%88%D9%86%D9%87-%D9%88%D8%B1%D8%AF%D9%BE%D8%B1%D8%B3-%DA%A9%D9%BE%DA%86%D8%A7) · [Download (v1.14)](https://s3.thr1.sotoon.ir/citadel/public/arcaptcha.1.14.zip) |
-| WordPress (Gravity Forms, Community) | Community-maintained WordPress plugin for integrating ARCaptcha with Gravity Forms | [Download](https://s3.thr1.sotoon.ir/citadel/public/gf-arcaptcha-addon.zip)                                                                                                                                                        |
+| WordPress                            | WordPress plugin for integrating ARCaptcha in WordPress sites                      | [Documentation](https://arcaptcha.co/fa/blog/%D8%A7%D9%81%D8%B2%D9%88%D9%86%D9%87-%D9%88%D8%B1%D8%AF%D9%BE%D8%B1%D8%B3-%DA%A9%D9%BE%DA%86%D8%A7) · [Download (v2.0.0)](https://arcaptcha-public.s3.ir-central1.arvanstorage.ir/arcaptcha.2.0.0.zip) |
+| WordPress (Gravity Forms, Community) | Community-maintained WordPress plugin for integrating ARCaptcha with Gravity Forms | [Download](https://arcaptcha-public.s3.ir-central1.arvanstorage.ir/gf-arcaptcha-addon.zip)                                                                                                                                                        |
 
 ## Acknowledgments
 
@@ -55,3 +56,4 @@ We are grateful to the community members who contribute libraries and plugins th
 
 - **[Parisa](https://parvizi96.ir/en)** — for developing and maintaining the community WordPress plugin for Gravity Forms.
 - **[Rassoul Shahsanaii](https://github.com/rassoulshah)** — for developing and maintaining the community Django REST Framework package.
+- **[Ibrahim Hosseini](https://github.com/IbrahimHosseini)** — for developing the native iOS SDK for ARCaptcha.

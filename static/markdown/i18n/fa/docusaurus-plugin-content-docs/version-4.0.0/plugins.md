@@ -17,12 +17,13 @@ ARCaptcha کتابخانه‌ها و پلاگین‌های رسمی و نگهد�
 
 ## SDK های موبایل
 
-SDK های بومی موبایل برای برنامه‌های Android.
+SDKهای بومی موبایل برای برنامه‌های Android و iOS.
 
 | SDK               | توضیحات                                                                   | لینک                                                                                      |
 | ----------------- | ------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | Android (بومی)    | SDK بومی Android برای ARCaptcha با پشتیبانی از چالش‌های Question و Puzzle | [arcaptcha-native-android-sdk](https://github.com/arcaptcha/arcaptcha-native-android-sdk) |
 | Android (WebView) | SDK Android با استفاده از WebView برای رندر کردن ویجت‌های ARCaptcha       | [arcaptcha_android_sdk](https://github.com/arcaptcha/arcaptcha_android_sdk)               |
+| iOS (جامعه)      | SDK غیررسمی iOS برای ARCaptcha که توسط جامعه نگهداری می‌شود؛ با پشتیبانی از چالش‌های Question و Puzzle | [ARCaptcha](https://github.com/IbrahimHosseini/ARCaptcha) |
 
 ## کتابخانه‌های بک‌اند
 
@@ -46,8 +47,8 @@ SDK های بومی موبایل برای برنامه‌های Android.
 
 | پلتفرم                               | توضیحات                                                                 | لینک                                                                                                                                                                                                                                      |
 | ------------------------------------ | ----------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| WordPress                            | پلاگین WordPress برای ادغام ARCaptcha در سایت‌های WordPress             | [مستندات](https://arcaptcha.co/fa/blog/%D8%A7%D9%81%D8%B2%D9%88%D9%86%D9%87-%D9%88%D8%B1%D8%AF%D9%BE%D8%B1%D8%B3-%DA%A9%D9%BE%DA%86%D8%A7) · [دانلود (v1.14)](https://s3.thr1.sotoon.ir/citadel/public/arcaptcha.1.14.zip)                 |
-| WordPress (Gravity Forms، جامعه)     | پلاگین WordPress نگهداری شده توسط جامعه برای ادغام ARCaptcha با Gravity Forms | [دانلود](https://s3.thr1.sotoon.ir/citadel/public/gf-arcaptcha-addon.zip)                                                                                                                                                               |
+| WordPress                            | پلاگین WordPress برای ادغام ARCaptcha در سایت‌های WordPress             | [مستندات](https://arcaptcha.co/fa/blog/%D8%A7%D9%81%D8%B2%D9%88%D9%86%D9%87-%D9%88%D8%B1%D8%AF%D9%BE%D8%B1%D8%B3-%DA%A9%D9%BE%DA%86%D8%A7) · [دانلود (v2.0.0)](https://arcaptcha-public.s3.ir-central1.arvanstorage.ir/arcaptcha.2.0.0.zip)                 |
+| WordPress (Gravity Forms، جامعه)     | پلاگین WordPress نگهداری شده توسط جامعه برای ادغام ARCaptcha با Gravity Forms | [دانلود](https://arcaptcha-public.s3.ir-central1.arvanstorage.ir/gf-arcaptcha-addon.zip)                                                                                                                                                               |
 
 ## قدردانی
 
@@ -55,3 +56,4 @@ SDK های بومی موبایل برای برنامه‌های Android.
 
 - **[Parisa](https://parvizi96.ir/en)** — بابت توسعه و نگهداری پلاگین WordPress جامعه برای Gravity Forms.
 - **[Rassoul Shahsanaii](https://github.com/rassoulshah)** — بابت توسعه و نگهداری پکیج Django REST Framework جامعه.
+- **[Ibrahim Hosseini](https://github.com/IbrahimHosseini)** — بابت توسعه SDK بومی iOS برای ARCaptcha.
